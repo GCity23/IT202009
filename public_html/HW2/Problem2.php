@@ -6,7 +6,11 @@ $a4 = [10.01, -12.22, 0.23, 19.20, -5.13, 3.12];
 function getTotal($arr) {
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
     $total = 0.00;
-    //TODO do adding here
+    for ($z = 0; $z < count($arr); $z++)
+    {
+        $total = $total + $arr[$z];
+        $total = round($total, 2, PHP_ROUND_HALF_UP);
+    }
     //TODO do rounding stuff here
     echo "The total is " . var_export($total, true);
 }
