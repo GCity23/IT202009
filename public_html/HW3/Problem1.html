@@ -12,8 +12,10 @@
         function getCurrentSelection() {
             setTimeout(() => {
                 //added this delay here as some solutions may require it to update properly (i.e., click code may complete before the navigation changes)
-                //TODO: add code for processing the current selection 
-
+                if (document.getElementByTagName("a")[1].click == true)
+                {
+                    updateCurrentPage("Hi");
+                }
                 //Note: likely you'll want to call updateCurrentPage towards the end
             }, 100);
         }
