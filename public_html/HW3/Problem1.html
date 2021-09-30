@@ -7,16 +7,18 @@
     <script>
         window.addEventListener("load", () => {
             console.log("loaded via javascript");
-            //TODO: add any extra onload processing you may need here
+            getCurrentSelection();
         });
         function getCurrentSelection() {
             setTimeout(() => {
-                //added this delay here as some solutions may require it to update properly (i.e., click code may complete before the navigation changes)
-                if (document.getElementByTagName("a")[1].click == true)
-                {
-                    updateCurrentPage("Hi");
-                }
-                //Note: likely you'll want to call updateCurrentPage towards the end
+                var link1 = document.getElementByTagName("LI")[1];
+                link1.addEventListener('click' , updateCurrentPage("login"));
+                var link2 = "#register";
+                link2.addEventListener('click' , updateCurrentPage("register"));
+                var link3 = "#profile";
+                link3.addEventListener('click' , updateCurrentPage("profile"));
+                var link4 = "#logout";
+                link4.addEventListener('click' , updateCurrentPage("logout"));
             }, 100);
         }
     </script>
