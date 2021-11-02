@@ -21,6 +21,10 @@
         var S = 83;
         var UP = 38;
         var DOWN = 40;
+        var RIGHT = 39;
+        var D = 68;
+        var A = 65;
+        var LEFT = 37;
         var visibilityPercent = 0.6;
 
         // Keep track of pressed keys
@@ -28,7 +32,11 @@
             W: false,
             S: false,
             UP: false,
-            DOWN: false
+            DOWN: false,
+            RIGHT: false,
+            D: false,
+            LEFT: false,
+            A: false
         };
 
         // Keep track of the score
@@ -106,6 +114,18 @@
                 if (e.keyCode === DOWN) {
                     keys.DOWN = true;
                 }
+                if (e.keyCode === LEFT) {
+                    keys.LEFT = true;
+                }
+                if (e.keyCode === A) {
+                    keys.A = true;
+                }
+                if (e.keyCode === RIGHT) {
+                    keys.RIGHT = true;
+                }
+                if (e.keyCode === D) {
+                    keys.D = true;
+                }
                 console.log(keys);
             });
             canvas.addEventListener('keyup', function (e) {
@@ -122,6 +142,19 @@
                 if (e.keyCode === DOWN) {
                     keys.DOWN = false;
                 }
+                if (e.keyCode === A) {
+                    keys.A = false;
+                }
+                if (e.keyCode === LEFT) {
+                    keys.LEFT = false;
+                }
+                if (e.keyCode === RIGHT) {
+                    keys.RIGHT = false;
+                }
+                if (e.keyCode === D) {
+                    keys.D = false;
+                }
+                
                 console.log(keys);
             });
         }
@@ -161,6 +194,15 @@
             if (keys.S || keys.DOWN) {
                 leftPaddle.y += leftPaddle.s;
             }
+
+            if (keys.A || keys.LEFT) {
+                leftPaddle.x -= leftPaddle.s;
+            }
+
+            if (keys.D || keys.RIGHT) {
+                leftPaddle.x += leftPaddle.s;
+            }
+            
             clampToCanvas(leftPaddle);
         }
         function clampToCanvas(paddle) {
@@ -169,6 +211,12 @@
             }
             if (paddle.y + paddle.h > canvas.height) {
                 paddle.y = canvas.height - paddle.h;
+            }
+            if (leftPaddle.x + leftPaddle.w > canvas.width / 2) {
+                leftPaddle.x = canvas.width/2 - leftPaddle.w;
+            }
+            if (paddle.x < 0) {
+                paddle.x = 0;
             }
         }
         function moveBall() {
@@ -201,11 +249,15 @@
             //left side of ball passes left side of paddle
             if (ball.x < leftPaddle.x) {
                 rightScore++;
+                if (leftPaddle.h < 200) {
+                leftPaddle.h = leftPaddle.h + 20; }
                 resetBall();
             }
             //right side of ball passes right side of paddle 
             else if (ball.x + ball.w > rightPaddle.x + rightPaddle.w) {
                 leftScore++;
+                if (leftPaddle.h > 30) {
+                leftPaddle.h = leftPaddle.h - 20; }
                 resetBall();
             }
         }
