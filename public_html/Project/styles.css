@@ -16,8 +16,10 @@
 nav li{display: inline; background-color: rgb(112, 212, 207);}
 nav li a{color: yellow}
 input{border-radius: 0%;
-    width:100%;
     
+    
+    width:100%;
+
 }
 body{
     background-color: yellowgreen;
