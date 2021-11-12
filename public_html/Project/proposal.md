@@ -19,6 +19,8 @@
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
 ### End Line item / Feature Template
+
+Finished
 --> 
 ### Proposal Checklist and Evidence
 
@@ -145,14 +147,15 @@
         - Screenshots
         - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141430741-b668d085-01c7-4d1b-a7b1-6342351c10f1.png)
             - Screenshot #1 Checks if the username is taken or not
-        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141430835-250245f5-f684-4cb1-ba08-61c64417cfa1.png)
-            - Screenshot #1 Checks if email is taken or not
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141430835-250245f5-f684-4cb1-ba08-61c64417cfa1.png)
+            - Screenshot #2 Checks if email is taken or not
+        - Screenshot #3 ![image](https://user-images.githubusercontent.com/74613485/141502948-222d2827-d4ac-44af-90e2-6805b4d422a2.png)
+            - Screenshot #3 Current Password is checked
+        - Screenshot #4 ![image](https://user-images.githubusercontent.com/74613485/141504208-8856e3e1-ea27-4d60-b493-2a21a4cbaac0.png)
+            - Screenshot #4 Checking new password and confirm password match
+        - Screenshot #5 ![image](https://user-images.githubusercontent.com/74613485/141504569-f031e986-206f-4047-8a53-dacd9bbeb755.png)
+            - Screenshot #5 Successful password reset
+
 
 - Milestone 2
 - Milestone 3
