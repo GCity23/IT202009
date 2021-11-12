@@ -26,7 +26,7 @@
     - [X] \(11/11/2021) User will be able to register a new account
     -  List of Evidence of Feature Completion
         - Status: Complete
-        - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+        - Direct Link: https://gcn5-prod.herokuapp.com/Project/register.php
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/24
         - PR link #2 https://github.com/GCity23/IT202009/pull/25
@@ -35,9 +35,9 @@
         - Screenshots
         - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141416200-f42c3371-9bdb-43b4-bb0a-7edae4bcb5c3.png)
             - Screenshot #1 Shows all form fields and email requirement
-        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141416357-7dbbf62c-2f2c-4805-9440-9a73d3d7c407.png)
+        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141423242-2bcdacd6-0c3f-4c18-9cc5-fe9debb89f4b.png)
             - Screenshot #2 Username Requirement
-        - Screenshot #3 ![image](https://user-images.githubusercontent.com/74613485/141416357-7dbbf62c-2f2c-4805-9440-9a73d3d7c407.png)
+        - Screenshot #3 ![image](https://user-images.githubusercontent.com/74613485/141423387-2bf07355-c1da-4779-86ce-2a9bb61f6207.png)
             - Screenshot #3 Password Matching Requirement
         - Screenshot #4 ![image](https://user-images.githubusercontent.com/74613485/141416788-52e05ac8-3318-4ae2-814a-3f4529834b13.png)
             - Screenshot #4 Id, username, email, password (60 characters), created, modified and Hashed Password
@@ -50,43 +50,47 @@
     - [X] \(11/10/2021) User will be able to login to their account (given they enter the correct credentials)
     -  List of Evidence of Feature Completion
         - Status: Complete
-        - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+        - Direct Link: https://gcn5-prod.herokuapp.com/Project/login.php
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/24
         - PR link #2 https://github.com/GCity23/IT202009/pull/25
         - Screenshots
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
-        - Screenshot #2 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #2 description explaining what you're trying to show
-        - Screenshot #3 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #3 description explaining what you're trying to show
-        - Screenshot #4 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #4 description explaining what you're trying to show
-        - Screenshot #5 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #5 description explaining what you're trying to show
-        - Screenshot #6 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #6 description explaining what you're trying to show    
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141421426-4cdd1aae-49d0-43da-9fd8-b9bebc757e82.png)
+            - Screenshot #1 Logging in with an email
+        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141421556-eaab1570-4631-48d9-88ad-bc33fc66f4cf.png))
+            - Screenshot #2 Logging in with username
+        - Screenshot #3 ![image](https://user-images.githubusercontent.com/74613485/141421663-75a914a3-c8dc-4968-9a18-9f95e596b7ec.png)
+            - Screenshot #3 Password is required
+        - Screenshot #4 ![image](https://user-images.githubusercontent.com/74613485/141422030-bc67a010-8219-4538-87cc-a3f5f6c79ac4.png)
+            - Screenshot #4 User friendly messages when something is missing
+        - Screenshot #5 ![image](https://user-images.githubusercontent.com/74613485/141422180-121ee109-9db8-410b-aea4-454ebb40543e.png)
+            - Screenshot #5 It saves the info to the session, as seen in the profile page
+        - Screenshot #6 ![image](https://user-images.githubusercontent.com/74613485/141422363-6e4486f3-792f-4a67-b9f0-cd1266eca263.png)
+            - Screenshot #6 User will be directed to a landing page upon login, takes u to the home page
     - [X] \(11/10/2021) User will be able to logout
     -  List of Evidence of Feature Completion
         - Status: Complete
-        - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+        - Direct Link: https://gcn5-prod.herokuapp.com/Project/home.php
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/24
         - PR link #2 https://github.com/GCity23/IT202009/pull/25
         - Screenshots
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141422564-f632d887-b8f2-462b-817b-f23ea306e4cf.png)
+            - Screenshot #1 Shows successful logout and redirecting to the login page with a success message
+        - Screenshot $2 ![image](https://user-images.githubusercontent.com/74613485/141422808-ff19325f-ccbf-4e38-b027-43c11db5e783.png)
+            - Screenshot #2 Proof that Back Buttons do not work
     - [X] \(11/11/2021) Basic security rules implemented
     -  List of Evidence of Feature Completion
         - Status: Complete
-        - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+        - Direct Link: https://gcn5-prod.herokuapp.com/Project/home.php
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/24
         - PR link #2 https://github.com/GCity23/IT202009/pull/29
         - Screenshots
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141426271-a4799f9f-0b3f-441f-b66e-2ca632464d10.png)
+            - Screenshot #1 Shows the is logged in function
+        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141426404-0352fad9-0bd4-4f47-8d34-6ca886ceb7ec.png)
+            - Screenshot #2 Shows an example page where the page can only be accessed because user is logged in
     - [X] \(11/11/2021) Basic Roles implemented
     -  List of Evidence of Feature Completion
         - Status: Complete
@@ -94,43 +98,59 @@
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/29
         - Screenshots
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141426799-680f0db3-4dec-44d3-8721-f26a71d65968.png)
+            - Screenshot #1 Roles Table
+        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141427698-e7f8d891-c083-41cb-9fb7-5b397bdc1a27.png)
+            - Screenshot #2 User Roles Table
+        - Screenshot #3 ![image](https://user-images.githubusercontent.com/74613485/141427829-be32b432-1eaf-41bc-942c-4e5fed06fb71.png)
+            - Screenshot #3 Has a role function
     - [X] \(11/10/2021) Site should have basic styles/theme applied; everything should be styled
     -  List of Evidence of Feature Completion
         - Status: Complete
-        - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+        - Direct Link: https://gcn5-prod.herokuapp.com/Project/home.php
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/28
         - Screenshots
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141428046-462e91bd-b1dd-4d71-a6a5-3c556e74998b.png)
+            - Screenshot #1 Styling on the home page
+        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141428176-105f43c3-b2d9-4a91-83f4-2205df64df7b.png)
+            - Screenshot #2 Styling on the Register page
     - [X] \(11/10/2021) Any output messages/errors should be “user friendly”
     -  List of Evidence of Feature Completion
         - Status: Complete 
-        - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+        - Direct Link: https://gcn5-prod.herokuapp.com/Project/home.php
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/25
         - PR link #2 https://github.com/GCity23/IT202009/pull/24
         - Screenshots
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141428666-800e03a3-b8f1-4b8f-abea-8da79fd2ea23.png)
+            - Screenshot #1 There used to be a technical array output. It has been cleaned up, and only has user-friendly messages
+        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141429722-f0171ab0-9f13-46f3-829f-2305b500594e.png)
+            - Screenshot #2 Another example of friendly input
     - [X] \(11/10/2021) User will be able to see their profile
     -  List of Evidence of Feature Completion
         - Status: Complete
-        - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+        - Direct Link: https://gcn5-prod.herokuapp.com/Project/profile.php
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/26/files
         - Screenshots
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141429906-22d3d1ef-cce0-42bf-8977-26737aa5f900.png)
+            - Screenshot #1 This shows the user profile
     - [X] \(11/10/2021) User will be able to edit their profile
     -  List of Evidence of Feature Completion
         - Status: Complete
-        - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+        - Direct Link: https://gcn5-prod.herokuapp.com/Project/profile.php
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/26
         - Screenshots
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141430741-b668d085-01c7-4d1b-a7b1-6342351c10f1.png)
+            - Screenshot #1 Checks if the username is taken or not
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141430835-250245f5-f684-4cb1-ba08-61c64417cfa1.png)
+            - Screenshot #1 Checks if email is taken or not
+        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
+            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
+            - Screenshot #1 description explaining what you're trying to show
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
 
