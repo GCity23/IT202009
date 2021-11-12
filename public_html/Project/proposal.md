@@ -68,7 +68,7 @@
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) Site should have basic styles/theme applied; everything should be styled
+    - [X] \(mm/dd/yyyy of completion) Site should have basic styles/theme applied; everything should be styled
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -77,7 +77,7 @@
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) Any output messages/errors should be “user friendly”
+    - [X] \(mm/dd/yyyy of completion) Any output messages/errors should be “user friendly”
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -86,21 +86,21 @@
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) User will be able to see their profile
+    - [X] \(11/11/2021 of completion) User will be able to see their profile
     -  List of Evidence of Feature Completion
-        - Status: Pending (Completed, Partially working, Incomplete, Pending)
+        - Status: Complete
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
         - Pull Requests
-        - PR link #1 (repeat as necessary)
+        - PR link #1 https://github.com/GCity23/IT202009/pull/26/files
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) User will be able to edit their profile
+    - [X] \(mm/dd/yyyy of completion) User will be able to edit their profile
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
         - Pull Requests
-        - PR link #1 (repeat as necessary)
+        - PR link #1 https://github.com/GCity23/IT202009/pull/26
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
