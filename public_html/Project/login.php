@@ -1,10 +1,11 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
+$email = se($_POST, "email", "", false);
 ?>
 <form onsubmit="return validate(this)" method="POST">
     <div>
         <label for="email">Username/Email</label>
-        <input type="text" name="email" required />
+        <input type="email" name="email" required value ="<?php se($email);?>" />
     </div>
     <div>
         <label for="pw">Password</label>
@@ -16,9 +17,7 @@ require(__DIR__ . "/../../partials/nav.php");
     function validate(form) {
         //TODO 1: implement JavaScript validation
         //ensure it returns false for an error and true for success
-        // hi 
-        
-        // trying to commit 
+
         return true;
     }
 </script>
