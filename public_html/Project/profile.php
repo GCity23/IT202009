@@ -54,7 +54,7 @@ if (isset($_POST["save"])) {
     $confirm_password = se($_POST, "confirmPassword", null, false);
     if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
         if ($new_password === $confirm_password) {
-            if (strlen($current_password) < 8) {
+            if (strlen($new_password) >= 8 && $confirm_password) {
             $stmt = $db->prepare("SELECT password from Users where id = :id");
             try {
                 $stmt->execute([":id" => get_user_id()]);
