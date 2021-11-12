@@ -4,8 +4,12 @@ is_logged_in(true);
 ?>
 <?php
 if (isset($_POST["save"])) {
+    $db = getDB();
     $email = se($_POST, "email", null, false);
     $username = se($_POST, "username", null, false);
+    $password = se($_POST, "password", "", false);
+
+
     $hasError = false;
     //sanitize
     $email = sanitize_email($email);
@@ -20,7 +24,6 @@ if (isset($_POST["save"])) {
     }
     if (!$hasError) {
         $params = [":email" => $email, ":username" => $username, ":id" => get_user_id()];
-        $db = getDB();
         $stmt = $db->prepare("UPDATE Users set email = :email, username = :username where id = :id");
         try {
             $stmt->execute($params);
@@ -51,6 +54,10 @@ if (isset($_POST["save"])) {
     $new_password = se($_POST, "newPassword", null, false);
     $confirm_password = se($_POST, "confirmPassword", null, false);
     if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
+        if (strlen($password) < 8) {
+            flash("Password too short", "danger");
+            $hasError = true;
+        
         if ($new_password === $confirm_password) {
             //TODO validate current
             $stmt = $db->prepare("SELECT password from Users where id = :id");
@@ -74,7 +81,7 @@ if (isset($_POST["save"])) {
             } catch (Exception $e) {
                 echo "<pre>" . var_export($e->errorInfo, true) . "</pre>";
             }
-        } else {
+        }} else {
             flash("New passwords don't match", "warning");
         }
     }
