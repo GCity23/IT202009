@@ -118,6 +118,7 @@ $username = get_username();
     <input type="submit" value="Update Profile" name="save" />
 </form>
 
+
 <script>
     function validate(form) {
         let pw = form.newPassword.value;
