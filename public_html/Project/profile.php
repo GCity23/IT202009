@@ -80,6 +80,7 @@ if (isset($_POST["save"])) {
         else
             {
                 flash("Password too short", "danger");
+                
             }
     } else {
             flash("New passwords don't match", "warning");
