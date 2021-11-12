@@ -76,6 +76,9 @@ if (isset($_POST["save"])) {
             } catch (Exception $e) {
                 echo "<pre>" . var_export($e->errorInfo, true) . "</pre>";
             }
+            //hi
+            //hi
+            //this is super making me mad rn. Have been at this since 8pm and its 5am now. 
         }
         else
             {
