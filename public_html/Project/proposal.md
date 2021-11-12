@@ -9,6 +9,7 @@
 ### Line item / Feature template (use this for each bullet point)
 #### Don't delete this
 
+
 - [ ] \(mm/dd/yyyy of completion) Feature Title (from the proposal bullet point, if it's a sub-point indent it properly)
   -  List of Evidence of Feature Completion
     - Status: Pending (Completed, Partially working, Incomplete, Pending)
@@ -158,7 +159,9 @@ Finished
 
 
 - Milestone 2
+
 - Milestone 3
+
 - Milestone 4
 ### Intructions
 #### Don't delete this
