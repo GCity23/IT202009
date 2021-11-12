@@ -1,10 +1,11 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
+$email = se($_POST, "email", "", false);
 ?>
 <form onsubmit="return validate(this)" method="POST">
     <div>
         <label for="email">Username/Email</label>
-        <input type="text" name="email" required />
+        <input type="email" name="email" required value ="<?php se($email);?>" />
     </div>
     <div>
         <label for="pw">Password</label>

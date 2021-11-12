@@ -30,7 +30,7 @@
     }
 
     .alert-warning {
-        background-color: yellow;
+        background-color: teal;
     }
 
     .alert-danger {

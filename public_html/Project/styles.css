@@ -3,7 +3,7 @@
 }
 
 .alert-warning {
-    background-color: yellow;
+    background-color: blue;
 }
 
 .alert-danger {
@@ -11,7 +11,7 @@
 }
 
 .alert-info {
-    background-color: coral;
+    background-color: blue;
 }
 nav {background-color: coral;font-size: 20px;}
 nav li{display: inline; background-color: coral;font-size: 20px;}
