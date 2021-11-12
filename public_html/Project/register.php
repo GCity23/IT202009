@@ -2,6 +2,7 @@
 require(__DIR__ . "/../../partials/nav.php");
 reset_session();
 $email = se($_POST, "email", "", false);
+$username = se($_POST, "username" , "" , false)
 ?>
 <form onsubmit="return validate(this)" method="POST">
     <div>
@@ -10,7 +11,7 @@ $email = se($_POST, "email", "", false);
     </div>
     <div>
         <label for="username">Username</label>
-        <input type="text" name="username" required maxlength="30" />
+        <input type="text" name="username" required maxlength="30" value ="<?php se($username);?>"/>
     </div>
     <div>
         <label for="pw">Password</label>
