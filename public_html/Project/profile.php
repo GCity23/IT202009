@@ -7,8 +7,7 @@ if (isset($_POST["save"])) {
     $db = getDB();
     $email = se($_POST, "email", null, false);
     $username = se($_POST, "username", null, false);
-    $password = se($_POST, "password", "", false);
-
+    $password = se($_POST, "password" ,null, false);
 
     $hasError = false;
     //sanitize
@@ -54,12 +53,8 @@ if (isset($_POST["save"])) {
     $new_password = se($_POST, "newPassword", null, false);
     $confirm_password = se($_POST, "confirmPassword", null, false);
     if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
-        if (strlen($password) < 8) {
-            flash("Password too short", "danger");
-            $hasError = true;
-        
         if ($new_password === $confirm_password) {
-            //TODO validate current
+            if (strlen($current_password) < 8) {
             $stmt = $db->prepare("SELECT password from Users where id = :id");
             try {
                 $stmt->execute([":id" => get_user_id()]);
@@ -81,7 +76,12 @@ if (isset($_POST["save"])) {
             } catch (Exception $e) {
                 echo "<pre>" . var_export($e->errorInfo, true) . "</pre>";
             }
-        }} else {
+        }
+        else
+            {
+                flash("Password too short", "danger");
+            }
+    } else {
             flash("New passwords don't match", "warning");
         }
     }
@@ -117,6 +117,7 @@ $username = get_username();
     </div>
     <input type="submit" value="Update Profile" name="save" />
 </form>
+
 
 <script>
     function validate(form) {
