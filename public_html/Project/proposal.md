@@ -23,16 +23,30 @@
 ### Proposal Checklist and Evidence
 
 - Milestone 1
-    - [ ] \(mm/dd/yyyy of completion) User will be able to register a new account
+    - [X] \(11/11/2021) User will be able to register a new account
     -  List of Evidence of Feature Completion
-        - Status: Pending (Completed, Partially working, Incomplete, Pending)
+        - Status: Complete
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
         - Pull Requests
         - PR link #1 https://github.com/GCity23/IT202009/pull/24
         - PR link #2 https://github.com/GCity23/IT202009/pull/25
+        - PR link #3 https://github.com/GCity23/IT202009/pull/54
+        - PR link #4 https://github.com/GCity23/IT202009/pull/55
         - Screenshots
-        - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-            - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #1 ![image](https://user-images.githubusercontent.com/74613485/141416200-f42c3371-9bdb-43b4-bb0a-7edae4bcb5c3.png)
+            - Screenshot #1 Shows all form fields and email requirement
+        - Screenshot #2 ![image](https://user-images.githubusercontent.com/74613485/141416357-7dbbf62c-2f2c-4805-9440-9a73d3d7c407.png)
+            - Screenshot #2 Username Requirement
+        - Screenshot #3 ![image](https://user-images.githubusercontent.com/74613485/141416357-7dbbf62c-2f2c-4805-9440-9a73d3d7c407.png)
+            - Screenshot #3 Password Matching Requirement
+        - Screenshot #4 ![image](https://user-images.githubusercontent.com/74613485/141416788-52e05ac8-3318-4ae2-814a-3f4529834b13.png)
+            - Screenshot #4 Id, username, email, password (60 characters), created, modified and Hashed Password
+        - Screenshot #5 ![image](https://user-images.githubusercontent.com/74613485/141417151-4ed8b19d-8de8-4148-bf70-e296fd466e41.png)
+            - Screenshot #5 - Unique Email
+        - Screenshot #6 ![image](https://user-images.githubusercontent.com/74613485/141417226-719f1b99-3103-4d2e-bbb3-6fd4ca4a1cbc.png)
+            - Screenshot #6 - Unique Username 
+        - Screenshot #7 ![image](https://user-images.githubusercontent.com/74613485/141417226-719f1b99-3103-4d2e-bbb3-6fd4ca4a1cbc.png)
+            - Screenshot #7 - Things are not wiped
     - [X] \(11/10/2021) User will be able to login to their account (given they enter the correct credentials)
     -  List of Evidence of Feature Completion
         - Status: Complete
@@ -43,6 +57,16 @@
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
+        - Screenshot #2 (paste the image so it uploads to github) (repeat as necessary)
+            - Screenshot #2 description explaining what you're trying to show
+        - Screenshot #3 (paste the image so it uploads to github) (repeat as necessary)
+            - Screenshot #3 description explaining what you're trying to show
+        - Screenshot #4 (paste the image so it uploads to github) (repeat as necessary)
+            - Screenshot #4 description explaining what you're trying to show
+        - Screenshot #5 (paste the image so it uploads to github) (repeat as necessary)
+            - Screenshot #5 description explaining what you're trying to show
+        - Screenshot #6 (paste the image so it uploads to github) (repeat as necessary)
+            - Screenshot #6 description explaining what you're trying to show    
     - [X] \(11/10/2021) User will be able to logout
     -  List of Evidence of Feature Completion
         - Status: Complete
