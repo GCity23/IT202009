@@ -7,15 +7,15 @@ if (!has_role("Admin")) {
     die(header("Location: $BASE_PATH" . "home.php"));
 }
 if (isset($_POST["submit"])) {
-    $id = save_data("BGD_Items", $_POST);
+    $id = save_data("Products", $_POST);
     if ($id > 0) {
         flash("Created Item with id $id", "success");
     }
 }
 //get the table definition
-$columns = get_columns("BGD_Items");
+$columns = get_columns("Products");
 //echo "<pre>" . var_export($columns, true) . "</pre>";
-$ignore = ["id", "modified", "created"];
+$ignore = ["id", "modified", "created" , "user_id"];
 ?>
 <div class="container-fluid">
     <h1>Add Item</h1>
