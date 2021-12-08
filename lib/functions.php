@@ -366,3 +366,45 @@ function change_bills($bills, $reason, $src = -1, $dest = -1, $memo = "")
         }
     }
 }
+
+function record_purchase($item_id, $user_id, $quantity, $cost)
+{
+    //I'm using negative values for predefined items so I can't validate >= 0 for item_id
+    if (/*$item_id <= 0 ||*/$user_id <= 0 || $quantity === 0) {
+        error_log("record_purchase() Item ID: $item_id, User_id: $user_id, Quantity $quantity");
+        return;
+    }
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO BGD_PurchaseHistory (item_id, user_id, quantity, unit_cost) VALUES (:iid, :uid, :q, :uc)");
+    try {
+        $stmt->execute([":iid" => $item_id, ":uid" => $user_id, ":q" => $quantity, ":uc" => $cost]);
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error recording purchase $quantity of $item_id for user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return false;
+}
+
+function add_item($item_id, $user_id, $quantity = 1)
+{
+    error_log("add_item() Item ID: $item_id, User_id: $user_id, Quantity $quantity");
+    //I'm using negative values for predefined items so I can't validate >= 0 for item_id
+    if (/*$item_id <= 0 ||*/$user_id <= 0 || $quantity === 0) {
+        
+        return;
+    }
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO BGD_Inventory (item_id, user_id, quantity) VALUES (:iid, :uid, :q) ON DUPLICATE KEY UPDATE quantity = quantity + :q");
+    try {
+        //if using bindValue, all must be bind value, can't split between this an execute assoc array
+        $stmt->bindValue(":q", $quantity, PDO::PARAM_INT);
+        $stmt->bindValue(":iid", $item_id, PDO::PARAM_INT);
+        $stmt->bindValue(":uid", $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error adding $quantity of $item_id to user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return false;
+}
+
