@@ -134,7 +134,7 @@ try {
                     console.log(http);
                 }
             }
-            http.open("POST", "api/purchase_item.php", true);
+            http.open("POST", "api/move_to_cart.php", true);
             let data = {
                 item_id: item,
                 quantity: 1,
@@ -148,8 +148,8 @@ try {
             let data = new FormData();
             data.append("item_id", item);
             data.append("quantity", 1);
-            data.append("cost", cost);
-            fetch("api/purchase_item.php", {
+            data.append("user_price", cost);
+            fetch("api/move_to_cart.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
@@ -167,7 +167,7 @@ try {
                     console.error('Error:', error);
                 });
         } else if (example === 3) {
-            $.post("api/puchase_item.php", {
+            $.post("api/move_to_cart.php", {
                     item_id: item,
                     quantity: 1,
                     cost: cost
@@ -203,8 +203,8 @@ try {
                         <p class="card-text">Description: <?php se($item, "description"); ?></p>
                     </div>
                     <div class="card-footer">
-                        Cost: <?php se($item, "cost"); ?>
-                        <button onclick="purchase('<?php se($item, 'id'); ?>','<?php se($item, 'cost'); ?>')" class="btn btn-primary">Purchase</button>
+                        Cost: <?php se($item, "unit_price"); ?>
+                        <button onclick="purchase('<?php se($item, 'id'); ?>','<?php se($item, 'unit_price'); ?>')" class="btn btn-primary">Purchase</button>
                     </div>
                 </div>
             </div>
