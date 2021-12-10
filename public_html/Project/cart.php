@@ -77,6 +77,7 @@ try {
 <div class="container-fluid">
     <h1>Your Items</h1>
     <div class="row row-cols-1 row-cols-md-5 g-4">
+        <?php $total = 0?>
         <?php foreach ($results as $item) : ?>
             <div class="col">
                 <div class="card bg-white">
@@ -89,7 +90,8 @@ try {
                         <p class="card-text">Unit Price: <?php se($item, "unit_price"); ?></p>
                     </div>
                     <div class="card-footer">
-                        Total Cost: <?php se($item, "unit_price"); ?>
+                        Total Cost: <?php echo(intval(se($item, "unit_price", 0, false)) * intval(se($item, "quantity", 0, false)));?>
+                        <?php $total = $total + intval(intval(se($item, "unit_price", 0, false)) * intval(se($item, "quantity", 0, false)))?>
                         <form method = "POST">
                             <label for="quantity">Update Quantity:</label><br>
                             <input type="text" id="quantity" name="quantity"><br>
@@ -106,6 +108,7 @@ try {
         <?php endforeach; ?>
         <form method = "POST">
         <input class="btn btn-primary" type="submit" value="Clear Cart" name="ClearCart"/>
+        <h1> Total Cart Cost: <?php echo($total)?></h1>
         </form> 
     </div>
 </div>
