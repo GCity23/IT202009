@@ -5,8 +5,60 @@ $results = [];
 if (!isset($user_id)) {
     $user_id = get_user_id();
 }
+
+if (isset($_POST["ClearCart"]))
+{
+    $newSTMT1 = $db->prepare("DELETE FROM Carts WHERE user_id = :user_id");
+    try {
+        $newSTMT1->execute([":user_id" => $user_id]);
+    } catch (PDOException $e) {
+        error_log(var_export($e, true));
+        flash("<pre>" . var_export($e, true) . "</pre>");
+    }
+}
+
+if (isset($_POST["RemoveItem"]))
+{
+    $cart_id2=se($_POST,"cart_id2", "",false);
+
+    $newSTMT6 = $db->prepare("DELETE FROM Carts WHERE id = :cart_id");
+    try {
+        $newSTMT6->execute([":cart_id" => $cart_id2]);
+    } catch (PDOException $e) {
+        error_log(var_export($e, true));
+        flash("<pre>" . var_export($e, true) . "</pre>");
+}
+}
+
 error_log("inventory");
-$stmt = $db->prepare("SELECT user_id, item_id, unit_price, name , quantity FROM Carts WHERE user_id = :uid");
+if (isset($_POST["submit"]))
+{
+    $cart_id=se($_POST,"cart_id", "",false);
+    $quantity=se($_POST,"quantity", "",false);
+    
+    if((($quantity == 0) == false))
+    {
+        $newSTMT4 = $db->prepare("UPDATE Carts SET quantity = :q WHERE id = :uid");
+        try {
+            $newSTMT4->execute([":uid" => $cart_id, ":q" => $quantity]);
+        } catch (PDOException $e) {
+            error_log(var_export($e, true));
+            flash("<pre>" . var_export($e, true) . "</pre>");
+        }
+    }
+    else
+    {
+        $newSTMT5 = $db->prepare("DELETE FROM Carts WHERE id = :cart_id");
+        try {
+            $newSTMT5->execute([":cart_id" => $cart_id]);
+        } catch (PDOException $e) {
+            error_log(var_export($e, true));
+            flash("<pre>" . var_export($e, true) . "</pre>");
+    }
+}
+}
+
+$stmt = $db->prepare("SELECT id, user_id, item_id, unit_price, name , quantity FROM Carts WHERE user_id = :uid");
 try {
     $stmt->execute([":uid" => $user_id]);
     $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -17,10 +69,8 @@ try {
     error_log(var_export($e, true));
     flash("<pre>" . var_export($e, true) . "</pre>");
 }
-//TODO
-//display inventory output
-//allow triggering effects for next game session
-//store triggered items in a new table (so it persists between page loads and logouts)
+
+
 ?>
 
 <h5>Your Cart</h5>
@@ -40,9 +90,26 @@ try {
                     </div>
                     <div class="card-footer">
                         Total Cost: <?php se($item, "unit_price"); ?>
+                        <form method = "POST">
+                            <label for="quantity">Update Quantity:</label><br>
+                            <input type="text" id="quantity" name="quantity"><br>
+                            <input class="btn btn-primary" type="submit" value="Update" name="submit" />
+                            <input type="hidden" name="cart_id" value="<?php se($item, "id"); ?>"/>
+                        </form> 
+                        <form method = "POST">
+                            <input class="btn btn-primary" type="submit" value="Remove Item" name="RemoveItem"/>
+                            <input type="hidden" name="cart_id2" value="<?php se($item, "id"); ?>"/>
+                        </form>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
+        <form method = "POST">
+        <input class="btn btn-primary" type="submit" value="Clear Cart" name="ClearCart"/>
+        </form> 
     </div>
 </div>
+
+<?php
+require(__DIR__ . "/../../partials/footer.php");
+?>
