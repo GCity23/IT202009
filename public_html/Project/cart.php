@@ -102,6 +102,10 @@ try {
                             <input class="btn btn-primary" type="submit" value="Remove Item" name="RemoveItem"/>
                             <input type="hidden" name="cart_id2" value="<?php se($item, "id"); ?>"/>
                         </form>
+                        <form method = "POST" action="ExtraInfo.php">
+                            <input class="btn btn-primary" type="submit" value="More Info" name="MoreInfo"/>
+                            <input type="hidden" name="item_id" value="<?php se($item, "item_id"); ?>"/>
+                        </form>
                     </div>
                 </div>
             </div>

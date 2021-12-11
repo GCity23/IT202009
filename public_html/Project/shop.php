@@ -3,6 +3,11 @@ require(__DIR__ . "/../../partials/nav.php");
 
 $results = [];
 $db = getDB();
+
+if (isset($_POST["MoreInfo"]))
+{
+    $item_id=se($_POST,"item_id", "",false);
+}
 //Sort and Filters
 $col = se($_GET, "col", "unit_price", false);
 //allowed list
@@ -75,6 +80,7 @@ try {
 } catch (PDOException $e) {
     flash("<pre>" . var_export($e, true) . "</pre>");
 }
+
 ?>
 
 <form class="row row-cols-auto g-3 align-items-center">
@@ -204,7 +210,11 @@ try {
                     </div>
                     <div class="card-footer">
                         Cost: <?php se($item, "unit_price"); ?>
-                        <button onclick="purchase('<?php se($item, 'id'); ?>','<?php se($item, 'unit_price'); ?>')" class="btn btn-primary">Purchase</button>
+                        <button onclick="purchase('<?php se($item, 'id'); ?>','<?php se($item, 'unit_price'); ?>')" class="btn btn-primary">Add to Cart</button>
+                        <form method = "POST" action="ExtraInfo.php">
+                            <input class="btn btn-primary" type="submit" value="More Info" name="MoreInfo"/>
+                            <input type="hidden" name="item_id" value="<?php se($item, "id"); ?>"/>
+                        </form>
                     </div>
                 </div>
             </div>
