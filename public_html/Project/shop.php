@@ -3,6 +3,11 @@ require(__DIR__ . "/../../partials/nav.php");
 
 $results = [];
 $db = getDB();
+
+if (isset($_POST["MoreInfo"]))
+{
+    $item_id=se($_POST,"item_id", "",false);
+}
 //Sort and Filters
 $col = se($_GET, "col", "unit_price", false);
 //allowed list
@@ -75,6 +80,7 @@ try {
 } catch (PDOException $e) {
     flash("<pre>" . var_export($e, true) . "</pre>");
 }
+
 ?>
 
 <form class="row row-cols-auto g-3 align-items-center">
@@ -93,6 +99,7 @@ try {
                     <option value="stock">Stock</option>
                     <option value="name">Name</option>
                     <option value="created">Created</option>
+                    <option value="Category">Category</option>
                 </select>
                 <script>
                     //quick fix to ensure proper value is selected since
@@ -134,7 +141,7 @@ try {
                     console.log(http);
                 }
             }
-            http.open("POST", "api/purchase_item.php", true);
+            http.open("POST", "api/move_to_cart.php", true);
             let data = {
                 item_id: item,
                 quantity: 1,
@@ -148,8 +155,8 @@ try {
             let data = new FormData();
             data.append("item_id", item);
             data.append("quantity", 1);
-            data.append("cost", cost);
-            fetch("api/purchase_item.php", {
+            data.append("user_price", cost);
+            fetch("api/move_to_cart.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
@@ -167,7 +174,7 @@ try {
                     console.error('Error:', error);
                 });
         } else if (example === 3) {
-            $.post("api/puchase_item.php", {
+            $.post("api/move_to_cart.php", {
                     item_id: item,
                     quantity: 1,
                     cost: cost
@@ -203,8 +210,12 @@ try {
                         <p class="card-text">Description: <?php se($item, "description"); ?></p>
                     </div>
                     <div class="card-footer">
-                        Cost: <?php se($item, "cost"); ?>
-                        <button onclick="purchase('<?php se($item, 'id'); ?>','<?php se($item, 'cost'); ?>')" class="btn btn-primary">Purchase</button>
+                        Cost: <?php se($item, "unit_price"); ?>
+                        <button onclick="purchase('<?php se($item, 'id'); ?>','<?php se($item, 'unit_price'); ?>')" class="btn btn-primary">Add to Cart</button>
+                        <form method = "POST" action="ExtraInfo.php">
+                            <input class="btn btn-primary" type="submit" value="More Info" name="MoreInfo"/>
+                            <input type="hidden" name="item_id" value="<?php se($item, "id"); ?>"/>
+                        </form>
                     </div>
                 </div>
             </div>

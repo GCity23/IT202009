@@ -385,21 +385,23 @@ function record_purchase($item_id, $user_id, $quantity, $cost)
     return false;
 }
 
-function add_item($item_id, $user_id, $quantity = 1)
+function add_item($name, $item_id, $user_id, $unit_price, $quantity = 1)
 {
     error_log("add_item() Item ID: $item_id, User_id: $user_id, Quantity $quantity");
     //I'm using negative values for predefined items so I can't validate >= 0 for item_id
-    if (/*$item_id <= 0 ||*/$user_id <= 0 || $quantity === 0) {
+    if (/*$item_id <= 0 ||*/$user_id <= 0 || $quantity === 0 || $unit_price <0) {
         
         return;
     }
     $db = getDB();
-    $stmt = $db->prepare("INSERT INTO BGD_Inventory (item_id, user_id, quantity) VALUES (:iid, :uid, :q) ON DUPLICATE KEY UPDATE quantity = quantity + :q");
+    $stmt = $db->prepare("INSERT INTO Carts (name, item_id, user_id, quantity, unit_price) VALUES (:nm, :iid, :uid, :q, :ui) ON DUPLICATE KEY UPDATE quantity = quantity + :q");
     try {
         //if using bindValue, all must be bind value, can't split between this an execute assoc array
         $stmt->bindValue(":q", $quantity, PDO::PARAM_INT);
         $stmt->bindValue(":iid", $item_id, PDO::PARAM_INT);
         $stmt->bindValue(":uid", $user_id, PDO::PARAM_INT);
+        $stmt->bindValue(":ui", $unit_price, PDO::PARAM_INT);
+        $stmt->bindValue(":nm", $name, PDO::PARAM_STR);
         $stmt->execute();
         return true;
     } catch (PDOException $e) {
