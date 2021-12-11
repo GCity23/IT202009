@@ -160,7 +160,7 @@ Finished
 
 - Milestone 2
 
-    - [ ] \(mm/dd/yyyy of completion) User with an admin role or shop owner role will be able to add products to inventory
+    - [ ] \(12/10/2021) User with an admin role or shop owner role will be able to add products to inventory
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -169,7 +169,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) Any user will be able to see products with visibility = true on the Shop page
+    - [ ] \(12/10/2021) Any user will be able to see products with visibility = true on the Shop page
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
         - Pull Requests
@@ -177,7 +177,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) Admin/Shop owner will be able to see products with any visibility
+    - [ ] \(12/10/2021) Admin/Shop owner will be able to see products with any visibility
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -186,7 +186,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) Admin/Shop owner will be able to edit any product
+    - [ ] \(12/10/2021) Admin/Shop owner will be able to edit any product
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -195,7 +195,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) User will be able to click an item from a list and view a full page with more info about the item (Product Details Page)
+    - [ ] \(12/10/2021) User will be able to click an item from a list and view a full page with more info about the item (Product Details Page)
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -204,7 +204,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) User must be logged in for any Cart related activity below
+    - [ ] \(12/10/2021) User must be logged in for any Cart related activity below
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -213,7 +213,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) User will be able to add items to Cart
+    - [ ] \(12/10/2021) User will be able to add items to Cart
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -222,7 +222,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) User will be able to see their cart
+    - [ ] \(12/10/2021) User will be able to see their cart
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -231,7 +231,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion)User will be able to change quantity of items in their cart
+    - [ ] \(12/10/2021) User will be able to change quantity of items in their cart
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -240,7 +240,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) User will be able to remove a single item from their cart vai button click
+    - [ ] \(12/10/2021) User will be able to remove a single item from their cart vai button click
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -249,7 +249,7 @@ Finished
         - Screenshots
         - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
             - Screenshot #1 description explaining what you're trying to show
-    - [ ] \(mm/dd/yyyy of completion) User will be able to clear their entire cart via a button click
+    - [ ] \(12/10/2021) User will be able to clear their entire cart via a button click
     -  List of Evidence of Feature Completion
         - Status: Pending (Completed, Partially working, Incomplete, Pending)
         - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
