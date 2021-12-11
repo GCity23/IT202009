@@ -4,11 +4,8 @@ is_logged_in(true);
 ?>
 <?php
 if (isset($_POST["save"])) {
-    $db = getDB();
     $email = se($_POST, "email", null, false);
     $username = se($_POST, "username", null, false);
-    $password = se($_POST, "password" ,null, false);
-
     $hasError = false;
     //sanitize
     $email = sanitize_email($email);
@@ -23,6 +20,7 @@ if (isset($_POST["save"])) {
     }
     if (!$hasError) {
         $params = [":email" => $email, ":username" => $username, ":id" => get_user_id()];
+        $db = getDB();
         $stmt = $db->prepare("UPDATE Users set email = :email, username = :username where id = :id");
         try {
             $stmt->execute($params);
@@ -54,7 +52,7 @@ if (isset($_POST["save"])) {
     $confirm_password = se($_POST, "confirmPassword", null, false);
     if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
         if ($new_password === $confirm_password) {
-            if (strlen($new_password) >= 8 && $confirm_password) {
+            //TODO validate current
             $stmt = $db->prepare("SELECT password from Users where id = :id");
             try {
                 $stmt->execute([":id" => get_user_id()]);
@@ -76,16 +74,7 @@ if (isset($_POST["save"])) {
             } catch (Exception $e) {
                 echo "<pre>" . var_export($e->errorInfo, true) . "</pre>";
             }
-            //hi
-            //hi
-            //this is super making me mad rn. Have been at this since 8pm and its 5am now. 
-        }
-        else
-            {
-                flash("Password too short", "danger");
-                
-            }
-    } else {
+        } else {
             flash("New passwords don't match", "warning");
         }
     }
@@ -96,33 +85,34 @@ if (isset($_POST["save"])) {
 $email = get_user_email();
 $username = get_username();
 ?>
-<form method="POST" onsubmit="return validate(this);">
-    <div class="mb-3">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="<?php se($email); ?>" />
-    </div>
-    <div class="mb-3">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" value="<?php se($username); ?>" />
-    </div>
-    <!-- DO NOT PRELOAD PASSWORD -->
-    <div>Password Reset</div>
-    <div class="mb-3">
-        <label for="cp">Current Password</label>
-        <input type="password" name="currentPassword" id="cp" />
-    </div>
-    <div class="mb-3">
-        <label for="np">New Password</label>
-        <input type="password" name="newPassword" id="np" />
-    </div>
-    <div class="mb-3">
-        <label for="conp">Confirm Password</label>
-        <input type="password" name="confirmPassword" id="conp" />
-    </div>
-    <input type="submit" value="Update Profile" name="save" />
-</form>
-
-
+<div class="container-fluid">
+    <h1>Profile</h1>
+    <form method="POST" onsubmit="return validate(this);">
+        <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" name="email" id="email" value="<?php se($email); ?>" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-control" type="text" name="username" id="username" value="<?php se($username); ?>" />
+        </div>
+        <!-- DO NOT PRELOAD PASSWORD -->
+        <div class="mb-3">Password Reset</div>
+        <div class="mb-3">
+            <label class="form-label" for="cp">Current Password</label>
+            <input class="form-control" type="password" name="currentPassword" id="cp" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="np">New Password</label>
+            <input class="form-control" type="password" name="newPassword" id="np" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="conp">Confirm Password</label>
+            <input class="form-control" type="password" name="confirmPassword" id="conp" />
+        </div>
+        <input type="submit" class="mt-3 btn btn-primary" value="Update Profile" name="save" />
+    </form>
+</div>
 <script>
     function validate(form) {
         let pw = form.newPassword.value;
@@ -153,5 +143,5 @@ $username = get_username();
     }
 </script>
 <?php
-require_once(__DIR__ . "/../../partials/flash.php");
+require_once(__DIR__ . "/../../partials/footer.php");
 ?>
