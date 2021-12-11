@@ -22,10 +22,10 @@ if (!in_array($order, ["asc", "desc"])) {
 $name = se($_GET, "name", "", false);
 
 //split query into data and total
-$base_query = "SELECT id, name, description, unit_price, stock FROM Products items";
+$base_query = "SELECT id, name, description, unit_price, stock, visibility FROM Products items";
 $total_query = "SELECT count(1) as total FROM Products items";
 //dynamic query
-$query = " WHERE 1=1"; //1=1 shortcut to conditionally build AND clauses
+$query = " WHERE visibility > 0"; //1=1 shortcut to conditionally build AND clauses
 $params = []; //define default params, add keys as needed and pass to execute
 //apply name filter
 if (!empty($name)) {
