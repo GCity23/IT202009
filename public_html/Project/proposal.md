@@ -191,3 +191,4 @@
   8. Merge the updated dev branch into your production branch via a pull request
   9. Close any related issues that didn't auto close
     - You can edit the dropdown on the issue or drag/drop it to the proper column on the project board
+    
