@@ -37,6 +37,7 @@ try {
                 <td><?php se($results, "unit_price"); ?></td>
                 <td><?php se($results, "category"); ?></td>
                 <td><?php se($results, "description"); ?></td>
+                <a href="admin/edit_item.php?id=<?php se($results, "id"); ?>">Edit</a>
         </tbody>
     </table>
 </div>
