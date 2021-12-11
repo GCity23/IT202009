@@ -682,7 +682,6 @@ Finished
 
 - Milestone 3
 
->>>>>>> 48a1b8cb2f9c4bb06537444014142cde37198cd6
 - Milestone 4
 ### Intructions
 #### Don't delete this
