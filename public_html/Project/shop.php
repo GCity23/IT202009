@@ -99,6 +99,7 @@ try {
                     <option value="stock">Stock</option>
                     <option value="name">Name</option>
                     <option value="created">Created</option>
+                    <option value="Category">Category</option>
                 </select>
                 <script>
                     //quick fix to ensure proper value is selected since
