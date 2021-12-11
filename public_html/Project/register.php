@@ -4,6 +4,30 @@ reset_session();
 $email = se($_POST, "email", "", false);
 $username = se($_POST, "username" , "" , false)
 ?>
+
+<div class="container-fluid">
+    <h1>Register</h1>
+    <form onsubmit="return validate(this)" method="POST">
+        <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-control" type="text" name="username" required maxlength="30" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="pw">Password</label>
+            <input class="form-control" type="password" id="pw" name="password" required minlength="8" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="confirm">Confirm</label>
+            <input class="form-control" type="password" name="confirm" required minlength="8" />
+        </div>
+        <input type="submit" class="mt-3 btn btn-primary" value="Register" />
+    </form>
+</div>
+
 <form onsubmit="return validate(this)" method="POST">
     <div>
         <label for="email">Email</label>
@@ -23,6 +47,7 @@ $username = se($_POST, "username" , "" , false)
     </div>
     <input type="submit" value="Register" />
 </form>
+
 <script>
     function validate(form) {
         //TODO 1: implement JavaScript validation
@@ -93,5 +118,5 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
 }
 ?>
 <?php
-require(__DIR__ . "/../../partials/flash.php");
+require(__DIR__ . "/../../partials/footer.php");
 ?>
