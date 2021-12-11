@@ -216,6 +216,7 @@ try {
                             <input class="btn btn-primary" type="submit" value="More Info" name="MoreInfo"/>
                             <input type="hidden" name="item_id" value="<?php se($item, "id"); ?>"/>
                         </form>
+                        <a href="admin/edit_item.php?id=<?php se($item, "id"); ?>">Edit</a>
                     </div>
                 </div>
             </div>
