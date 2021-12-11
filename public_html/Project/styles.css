@@ -3,7 +3,7 @@
 }
 
 .alert-warning {
-    background-color: yellow;
+    background-color: blue;
 }
 
 .alert-danger {
@@ -11,19 +11,22 @@
 }
 
 .alert-info {
-    background-color: teal;
+    background-color: blue;
 }
-nav li{display: inline; background-color: rgb(112, 212, 207);}
-nav li a{color: yellow}
+nav {background-color: coral;font-size: 20px;}
+nav li{display: inline; background-color: coral;font-size: 20px;}
+nav li a{color: yellow; font-size: 20px;}
 input{border-radius: 0%;
     
     
     width:100%;
+    font-size: 20px;
 
 }
 body{
-    background-color: yellowgreen;
-    color: rgb(153, 0, 153);
+    background-color: yellow;
+    color: coral;
+    font-size: 20px;
 
     
 }
