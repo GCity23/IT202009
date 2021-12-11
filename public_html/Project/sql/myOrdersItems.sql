@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS OrderItems(
     quantity int DEFAULT  1,
     unit_price int,
     order_id int,
-    FOREIGN KEY (user_id) REFERENCES Users(id)
+    FOREIGN KEY (item_id) REFERENCES Products(id)
 )
