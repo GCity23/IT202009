@@ -10,8 +10,6 @@ if (isset($_POST["GoToCheckout"]))
     $user_id = se($_POST,"total_cost", "",false);
 }
 
-if (isset($_POST["FirstName"]) && isset($_POST["LastName"]) && isset($_POST["Address"]) && isset($_POST["City"]) && isset($_POST["State"]) && isset($_POST["Country"]) && isset($_POST["Zipcode"]) && isset($_POST["TotalCostCheck"]) && isset($_POST["PaymentType"])) 
-{
     $FirstName = se($_POST, "FirstName", "", false);
     $LastName = se($_POST, "LastName", "", false);
     $Address = se($_POST, "Address", "", false);
@@ -21,7 +19,6 @@ if (isset($_POST["FirstName"]) && isset($_POST["LastName"]) && isset($_POST["Add
     $Zipcode = se($_POST, "Zipcode", "", false);
     $TotalCostCheck = se($_POST, "TotalCostCheck", "", false);
     $PaymentType = se($_POST, "PaymentType", "", false);
-}
 ?>
 
 <div class="container-fluid">
@@ -77,6 +74,8 @@ if (isset($_POST["FirstName"]) && isset($_POST["LastName"]) && isset($_POST["Add
 </script>
 
 <?php
+if (isset($_POST["ProceedWithCheckout"]))
+{
 $stmt = $db->prepare("SELECT Products.stock as PQ, Products.name as PN, Carts.name, Carts.item_id, Carts.name as CN, Products.unit_price as PP, Carts.quantity as CQ, Carts.unit_price as CP FROM Carts INNER JOIN Products ON Carts.item_id = Products.id WHERE Carts.user_id = :uid");
 try {
     $stmt->execute([":uid" => $user_id]);
@@ -109,6 +108,56 @@ if ($isValid != true)
 {
     redirect("cart.php");
 }
+else
+{
+    $stmtNEW = $db->prepare("INSERT INTO Orders (user_id, payment, address, total_price) VALUES(:user, :payment, :address, :total_price)");
+    try 
+    {
+        $stmtNEW->execute([":user" => $user_id, ":payment" => $PaymentType, ":address" => $Address , ":total_price" => $TotalCostCheck]);
+        $order_id = $db->lastInsertId();
+    } 
+    catch (PDOException $e) 
+    {
+        error_log(var_export($e, true));
+        flash("<pre>" . var_export($e, true) . "</pre>");
+    }
 
+    $stmtNEW2 = $db->prepare("INSERT INTO OrderItems(item_id, quantity, unit_price, order_id)
+    SELECT item_id, quantity, unit_price, :order_id FROM Carts where user_id = :uid");
+        try 
+        {
+            $stmtNEW2->execute([":uid" => $user_id, ":order_id" => $order_id]);
+        } 
+        catch (PDOException $e) 
+        {
+            error_log(var_export($e, true));
+            flash("<pre>" . var_export($e, true) . "</pre>");
+        }
+    
+    $stmtNEW3 = $db->prepare("UPDATE Products set stock = stock - (select quantity from Carts where item_id = Products.id and user_id = :uid) WHERE id in (SELECT item_id from Carts WHERE Carts.user_id = :uid)");
+        try 
+        {
+            $stmtNEW3->execute([":uid" => $user_id]);
+        } 
+        catch (PDOException $e) 
+        {
+            error_log(var_export($e, true));
+            flash("<pre>" . var_export($e, true) . "</pre>");
+        }
+    
+    $newSTMT4 = $db->prepare("DELETE FROM Carts WHERE user_id = :user_id");
+        try 
+        {
+            $newSTMT4->execute([":user_id" => $user_id]);
+        }   
+        catch (PDOException $e) 
+        {
+            error_log(var_export($e, true));
+            flash("<pre>" . var_export($e, true) . "</pre>");
+        }
+
+    redirect("OrderConfirmation.php?id=$order_id");
+}
+}
 require(__DIR__ . "/../../partials/footer.php");
 ?>
