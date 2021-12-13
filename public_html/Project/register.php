@@ -28,26 +28,6 @@ $username = se($_POST, "username" , "" , false)
     </form>
 </div>
 
-<form onsubmit="return validate(this)" method="POST">
-    <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" required value ="<?php se($email);?>" />
-    </div>
-    <div>
-        <label for="username">Username</label>
-        <input type="text" name="username" required maxlength="30" value ="<?php se($username);?>"/>
-    </div>
-    <div>
-        <label for="pw">Password</label>
-        <input type="password" id="pw" name="password" required minlength="8" />
-    </div>
-    <div>
-        <label for="confirm">Confirm</label>
-        <input type="password" name="confirm" required minlength="8" />
-    </div>
-    <input type="submit" value="Register" />
-</form>
-
 <script>
     function validate(form) {
         //TODO 1: implement JavaScript validation

@@ -77,6 +77,7 @@ try {
 <div class="container-fluid">
     <h1>Your Items</h1>
     <div class="row row-cols-1 row-cols-md-5 g-4">
+        <?php $ProductIDs = array();?>
         <?php $total = 0?>
         <?php foreach ($results as $item) : ?>
             <div class="col">
@@ -104,15 +105,22 @@ try {
                         </form>
                         <form method = "POST" action="ExtraInfo.php">
                             <input class="btn btn-primary" type="submit" value="More Info" name="MoreInfo"/>
-                            <input type="hidden" name="item_id" value="<?php se($item, "item_id"); ?>"/>
+                            <input type="hidden" name="item_id" value="<?php se($item, "user_id"); ?>"/>
                         </form>
                     </div>
                 </div>
             </div>
+        <?php array_push($ProductIDs, se($item, "item_id", "", false));?>
         <?php endforeach; ?>
         <form method = "POST">
         <input class="btn btn-primary" type="submit" value="Clear Cart" name="ClearCart"/>
         <h1> Total Cart Cost: <?php echo($total)?></h1>
+        </form> 
+        <form method = "POST" action ="checkout.php" >
+        <input class="btn btn-primary" type="submit" value="Proceed to Checkout" name="GoToCheckout"/>
+        <input type="hidden" name="total_cost" value="<?php echo($total)?>"/>
+        <input type="hidden" name="user_id_for_checkout" value="<?php se($item, "user_id"); ?>"/>
+        <input type="hidden" name="arrayOfAllProductIds" value = "<?php $ProductIDs;?>"/>
         </form> 
     </div>
 </div>

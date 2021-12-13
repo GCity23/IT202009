@@ -157,10 +157,8 @@ Finished
         - Screenshot #5 ![image](https://user-images.githubusercontent.com/74613485/141504569-f031e986-206f-4047-8a53-dacd9bbeb755.png)
             - Screenshot #5 Successful password reset
 
-
 - Milestone 2
 
-    
 <table>
 <tr><td>Milestone 2</td></tr><tr><td>
 <table>
