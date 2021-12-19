@@ -199,7 +199,7 @@ try {
             <div class="col">
                 <div class="card bg-dark">
                     <div class="card-header">
-                        Placeholder
+                        
                     </div>
                     <?php if (se($item, "image", "", false)) : ?>
                         <img src="<?php se($item, "image"); ?>" class="card-img-top" alt="...">
