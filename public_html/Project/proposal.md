@@ -680,7 +680,249 @@ Finished
 
 
 
-- Milestone 3
+
+<table>
+<tr><td>Milestone 3</td></tr><tr><td>
+<table>
+<tr><td>F1 - User will be able to purchase items in their Cart (2021-12-13)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/cart.php](https://gcn5-prod.herokuapp.com/Project/cart.php)</p><p>
+
+ [https://gcn5-prod.herokuapp.com/Project/checkout.php](https://gcn5-prod.herokuapp.com/Project/checkout.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/100](https://github.com/GCity23/IT202009/pull/100)</p><p>
+
+ [https://github.com/GCity23/IT202009/pull/101](https://github.com/GCity23/IT202009/pull/101)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F1 - Create an Orders table (id, user_id, created, total_price, address, payment_method)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146687992-e46d232b-1f72-4fd1-9c23-c5224691692b.png">
+<p>This is the order table I created</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F1 - Create an OrderItems table (id, order_id, product_id, quantity, unit_price)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688008-4bf2c3c5-535d-405e-9817-32fd76974a38.png">
+<p>This is the order items table I created</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F1 - Checkout Form</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688034-8c089591-3e77-46ef-a8f3-a7a9415fb217.png">
+<p>This is my checkout page. Only numbers can be added to the zipcode and unit price fields. It asks for payment type, but no credit card number, which is what the instructions asked. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F1 - User will be asked for their Address for shipping purposes</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688034-8c089591-3e77-46ef-a8f3-a7a9415fb217.png">
+<p>This checkout form has a field for the person to enter their address. Used for shipping purposes</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F1 - Order process:</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688133-6c2d6d47-e76f-4f11-a945-37e629c55631.png">
+<p>This is verifying that the current prices match the products table. This is also checking to see if the quantity is valid. It flashes the appropriate message otherwise. Both of these show an error message if something is wrong.</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688341-ee3e4c17-d617-4c9b-bc5c-c60741da9906.png">
+<p>Error for quantity/stock issue</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688431-ac8764ee-7f02-4bef-af68-a8af48bcc412.png">
+<p>Error for not matching prices</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688473-e7914922-19f4-4584-a679-6b5f59a29b8f.png">
+<p>Inserting into Orders and Orders Items Tables. also getting last order id. This is done with a function, and some insert sql stmts. </p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688540-a6846480-2893-4edd-90c1-ff02197108d5.png">
+<p>This code clears out the user's cart, redirects the user to the order confirmation page, and updates the stock of the product from the products table to account for the user buying a certain amount, therefore removing it from stock. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F2 - Order Confirmation Page (2021-12-13)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/OrderConfirmation.php?id=33](https://gcn5-prod.herokuapp.com/Project/OrderConfirmation.php?id=33)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/102](https://github.com/GCity23/IT202009/pull/102)</p><p>
+
+ [https://github.com/GCity23/IT202009/pull/103](https://github.com/GCity23/IT202009/pull/103)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F2 - Show the entire order details from the Order and OrderItems table (similar to cart)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688617-b35aac60-a8c5-4c72-83fd-64701971367e.png">
+<p>Shows the entire order history</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - Displays a Thank you message</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688617-b35aac60-a8c5-4c72-83fd-64701971367e.png">
+<p>Displays a Thank You Message as well</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F3 - User will be able to see their Purchase History (2021-12-13)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/PurchaseHistory.php](https://gcn5-prod.herokuapp.com/Project/PurchaseHistory.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/104](https://github.com/GCity23/IT202009/pull/104)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F3 - For now limit to 10 most recent orders</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688644-ddf954f9-8b65-434b-9bae-67ddcf53621f.png">
+<p>Shows the user their 10 most recent orders</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F3 - A list item can be clicked to view the full details in the Order Details Page (similar to Order Confirmation Page except no “Thank you” message)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688660-3d87c9b5-95fe-4164-8c14-d5e717b861f7.png">
+<p>This is the page you are brought to when you click on the More Info button. It shows you the specific order details.</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F4 - Store Owner will be able to see all Purchase History (2021-12-13)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/admin/Order_History.php](https://gcn5-prod.herokuapp.com/Project/admin/Order_History.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/104](https://github.com/GCity23/IT202009/pull/104)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F4 - For now limit to 10 most recent orders</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688688-4ab1ecfe-161c-41db-aa4e-319fddea5de5.png">
+<p>This is the 10 most orders from any user. So, it is the overall shop purchase history. Only Shop Owner can see this. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F4 - A list item can be clicked to view the full details in the Order Details Page (similar to Order Confirmation Page except no “Thank you” message)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688768-8184ae07-dc1d-438f-aa70-1b2efaf125e5.png">
+<p>This is where the shop owner can see individual details about an order. This is when the More Info Button is clicked. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr></td></tr></table>
+
+
 
 - Milestone 4
 ### Intructions
