@@ -131,3 +131,349 @@ function get_url($dest)
     //handle relative path
     return $BASE_PATH . $dest;
 }
+
+function get_random_str($length)
+{
+    //https://stackoverflow.com/a/13733588
+    //$bytes = random_bytes($length / 2);
+    //return bin2hex($bytes);
+
+    //https://stackoverflow.com/a/40974772
+    return substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', 36)), 0, $length);
+}
+
+function get_or_create_account()
+{
+    if (is_logged_in()) {
+        //let's define our data structure first
+        //id is for internal references, account_number is user facing info, and balance will be a cached value of activity
+        $account = ["id" => -1, "account_number" => false, "balance" => 0];
+        //this should always be 0 or 1, but being safe
+        $query = "SELECT id, account, balance from BGD_Accounts where user_id = :uid LIMIT 1";
+        $db = getDB();
+        $stmt = $db->prepare($query);
+        try {
+            $stmt->execute([":uid" => get_user_id()]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                //account doesn't exist, create it
+                $created = false;
+                //we're going to loop here in the off chance that there's a duplicate
+                //it shouldn't be too likely to occur with a length of 12, but it's still worth handling such a scenario
+
+                //you only need to prepare once
+                $query = "INSERT INTO BGD_Accounts (account, user_id) VALUES (:an, :uid)";
+                $stmt = $db->prepare($query);
+                $user_id = get_user_id(); //caching a reference
+                $account_number = "";
+                $aid = -1;
+                while (!$created) {
+                    try {
+                        $account_number = get_random_str(12);
+                        $stmt->execute([":an" => $account_number, ":uid" => $user_id]);
+                        $created = true; //if we got here it was a success, let's exit
+                        $aid = $db->lastInsertId();
+                        flash("Welcome! Your account has been created successfully", "success");
+                        change_bills(10, "welcome", -1, $aid, "Welcome bonus!");
+                    } catch (PDOException $e) {
+                        $code = se($e->errorInfo, 0, "00000", false);
+                        //if it's a duplicate error, just let the loop happen
+                        //otherwise throw the error since it's likely something looping won't resolve
+                        //and we don't want to get stuck here forever
+                        if (
+                            $code !== "23000"
+                        ) {
+                            throw $e;
+                        }
+                    }
+                }
+                //loop exited, let's assign the new values
+                $account["id"] = $aid;
+                $account["account_number"] = $account_number;
+            } else {
+                //$account = $result; //just copy it over
+                $account["id"] = $result["id"];
+                $account["account_number"] = $result["account"];
+                $account["balance"] = $result["balance"];
+            }
+        } catch (PDOException $e) {
+            flash("Technical error: " . var_export($e->errorInfo, true), "danger");
+        }
+        $_SESSION["user"]["account"] = $account; //storing the account info as a key under the user session
+        if (isset($created) && $created) {
+            refresh_account_balance();
+        }
+        //Note: if there's an error it'll initialize to the "empty" definition around line 161
+
+    } else {
+        flash("You're not logged in", "danger");
+    }
+}
+
+function get_account_balance()
+{
+    if (is_logged_in() && isset($_SESSION["user"]["account"])) {
+        return (int)se($_SESSION["user"]["account"], "balance", 0, false);
+    }
+    return 0;
+}
+function get_user_account_id()
+{
+    if (is_logged_in() && isset($_SESSION["user"]["account"])) {
+        return (int)se($_SESSION["user"]["account"], "id", 0, false);
+    }
+    return 0;
+}
+
+function get_columns($table)
+{
+    $table = se($table, null, null, false);
+    $db = getDB();
+    $query = "SHOW COLUMNS from $table"; //be sure you trust $table
+    $stmt = $db->prepare($query);
+    $results = [];
+    try {
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "<pre>" . var_export($e, true) . "</pre>";
+    }
+    return $results;
+}
+
+function save_data($table, $data, $ignore = ["submit"])
+{
+    $table = se($table, null, null, false);
+    $db = getDB();
+    $query = "INSERT INTO $table "; //be sure you trust $table
+    //https://www.php.net/manual/en/functions.anonymous.php Example#3
+    $columns = array_filter(array_keys($data), function ($x) use ($ignore) {
+        return !in_array($x, $ignore); // $x !== "submit";
+    });
+    //arrow function uses fn and doesn't have return or { }
+    //https://www.php.net/manual/en/functions.arrow.php
+    $placeholders = array_map(fn ($x) => ":$x", $columns);
+    $query .= "(" . join(",", $columns) . ") VALUES (" . join(",", $placeholders) . ")";
+
+    $params = [];
+    foreach ($columns as $col) {
+        $params[":$col"] = $data[$col];
+    }
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute($params);
+        //https://www.php.net/manual/en/pdo.lastinsertid.php
+        //echo "Successfully added new record with id " . $db->lastInsertId();
+        return $db->lastInsertId();
+    } catch (PDOException $e) {
+        //echo "<pre>" . var_export($e->errorInfo, true) . "</pre>";
+        flash("<pre>" . var_export($e->errorInfo, true) . "</pre>");
+        return -1;
+    }
+}
+
+function inputMap($fieldType)
+{
+    if (str_contains($fieldType, "varchar")) {
+        return "text";
+    } else if ($fieldType === "text") {
+        return "textarea";
+    } else if (in_array($fieldType, ["int", "decimal"])) { //TODO fill in as needed
+        return "number";
+    }
+    return "text"; //default
+}
+
+function update_data($table, $id,  $data, $ignore = ["id", "submit"])
+{
+    $columns = array_keys($data);
+    foreach ($columns as $index => $value) {
+        //Note: normally it's bad practice to remove array elements during iteration
+
+        //remove id, we'll use this for the WHERE not for the SET
+        //remove submit, it's likely not in your table
+        if (in_array($value, $ignore)) {
+            unset($columns[$index]);
+        }
+    }
+    $query = "UPDATE $table SET "; //be sure you trust $table
+    $cols = [];
+    foreach ($columns as $index => $col) {
+        array_push($cols, "$col = :$col");
+    }
+    $query .= join(",", $cols);
+    $query .= " WHERE id = :id";
+
+    $params = [":id" => $id];
+    foreach ($columns as $col) {
+        $params[":$col"] = se($data, $col, "", false);
+    }
+    $db = getDB();
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute($params);
+        return true;
+    } catch (PDOException $e) {
+        flash("<pre>" . var_export($e->errorInfo, true) . "</pre>");
+        return false;
+    }
+}
+
+function refresh_account_balance()
+{
+    if (is_logged_in()) {
+        //cache account balance via BGD_Bills_History history
+        $query = "UPDATE BGD_Accounts set balance = (SELECT IFNULL(SUM(diff), 0) from BGD_Bills_History WHERE src = :src) where id = :src";
+        $db = getDB();
+        $stmt = $db->prepare($query);
+        try {
+            $stmt->execute([":src" => get_user_account_id()]);
+            get_or_create_account(); //refresh session data
+        } catch (PDOException $e) {
+            flash("Error refreshing account: " . var_export($e->errorInfo, true), "danger");
+        }
+    }
+}
+
+function change_bills($bills, $reason, $src = -1, $dest = -1, $memo = "")
+{
+    //I'm choosing to ignore the record of 0 point transactions
+    if ($bills > 0) {
+        $query = "INSERT INTO BGD_Bills_History (src, dest, diff, reason, memo) 
+            VALUES (:acs, :acd, :pc, :r,:m), 
+            (:acs2, :acd2, :pc2, :r, :m)";
+        //I'll insert both records at once, note the placeholders kept the same and the ones changed.
+        $params[":acs"] = $src;
+        $params[":acd"] = $dest;
+        $params[":r"] = $reason;
+        $params[":m"] = $memo;
+        $params[":pc"] = ($bills * -1);
+
+        $params[":acs2"] = $dest;
+        $params[":acd2"] = $src;
+        $params[":pc2"] = $bills;
+        $db = getDB();
+        $stmt = $db->prepare($query);
+        try {
+            $stmt->execute($params);
+            //Only refresh the balance of the user if the logged in user's account is part of the transfer
+            //this is needed so future features don't waste time/resources or potentially cause an error when a calculation
+            //occurs without a logged in user
+            if ($src == get_user_account_id() || $dest == get_user_account_id()) {
+                refresh_account_balance();
+            }
+        } catch (PDOException $e) {
+            flash("Transfer error occurred: " . var_export($e->errorInfo, true), "danger");
+        }
+    }
+}
+
+function record_purchase($item_id, $user_id, $quantity, $cost)
+{
+    //I'm using negative values for predefined items so I can't validate >= 0 for item_id
+    if (/*$item_id <= 0 ||*/$user_id <= 0 || $quantity === 0) {
+        error_log("record_purchase() Item ID: $item_id, User_id: $user_id, Quantity $quantity");
+        return;
+    }
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO BGD_PurchaseHistory (item_id, user_id, quantity, unit_cost) VALUES (:iid, :uid, :q, :uc)");
+    try {
+        $stmt->execute([":iid" => $item_id, ":uid" => $user_id, ":q" => $quantity, ":uc" => $cost]);
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error recording purchase $quantity of $item_id for user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return false;
+}
+
+function add_item($name, $item_id, $user_id, $unit_price, $quantity = 1)
+{
+    error_log("add_item() Item ID: $item_id, User_id: $user_id, Quantity $quantity");
+    //I'm using negative values for predefined items so I can't validate >= 0 for item_id
+    if (/*$item_id <= 0 ||*/$user_id <= 0 || $quantity === 0 || $unit_price <0) {
+        
+        return;
+    }
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO Carts (name, item_id, user_id, quantity, unit_price) VALUES (:nm, :iid, :uid, :q, :ui) ON DUPLICATE KEY UPDATE quantity = quantity + :q");
+    try {
+        //if using bindValue, all must be bind value, can't split between this an execute assoc array
+        $stmt->bindValue(":q", $quantity, PDO::PARAM_INT);
+        $stmt->bindValue(":iid", $item_id, PDO::PARAM_INT);
+        $stmt->bindValue(":uid", $user_id, PDO::PARAM_INT);
+        $stmt->bindValue(":ui", $unit_price, PDO::PARAM_INT);
+        $stmt->bindValue(":nm", $name, PDO::PARAM_STR);
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error adding $quantity of $item_id to user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return false;
+}
+
+function paginate($query, $params = [], $per_page = 10)
+{
+    global $page; //will be available after function is called
+    try {
+        $page = (int)se($_GET, "page", 1, false);
+    } catch (Exception $e) {
+        //safety for if page is received as not a number
+        $page = 1;
+    }
+    $db = getDB();
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute($params);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("paginate error: " . var_export($e, true));
+    }
+    $total = 0;
+    if (isset($result)) {
+        $total = (int)se($result, "total", 0, false);
+    }
+    global $total_pages; //will be available after function is called
+    $total_pages = ceil($total / $per_page);
+    global $offset; //will be available after function is called
+    $offset = ($page - 1) * $per_page;
+}
+
+function persistQueryString($page)
+{
+    $_GET["page"] = $page;
+    return http_build_query($_GET);
+}
+
+function get_categories(){
+    $db = getDB();
+    $stmt = $db->prepare("SELECT DISTINCT category FROM Products");
+    $cats = [];
+    try{
+      $stmt->execute();
+      $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      if($r){
+        $cats = $r;
+      }
+    }
+    catch(PDOException $e){
+      error_log("Category lookup error: " . var_export($e, true));
+    }
+    return $cats;
+  }
+
+  function redirect($path)
+{ //header headache
+    //https://www.php.net/manual/en/function.headers-sent.php#90160
+    /*headers are sent at the end of script execution otherwise they are sent when the buffer reaches it's limit and emptied */
+    if (!headers_sent()) {
+        //php redirect
+        die(header("Location: " . get_url($path)));
+    }
+    //javascript redirect
+    echo "<script>window.location.href='" . get_url($path) . "';</script>";
+    //metadata redirect (runs if javascript is disabled)
+    echo "<noscript><meta http-equiv=\"refresh\" content=\"0;url=" . get_url($path) . "\"/></noscript>";
+    die();
+}
+
+  
