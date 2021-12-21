@@ -1,6 +1,16 @@
 <?php
 require_once(__DIR__ . "/../../partials/nav.php");
 is_logged_in(true);
+$user_id = se($_GET, "id", get_user_id(), false);
+error_log("user id $user_id");
+$isMe = $user_id === get_user_id();
+//!! makes the value into a true or false value regardless of the data https://stackoverflow.com/a/2127324
+$edit = !!se($_GET, "edit", false, false); //if key is present allow edit, otherwise no edit
+if ($user_id < 1) {
+    flash("Invalid user", "danger");
+    redirect("home.php");
+    //die(header("Location: home.php"));
+}
 ?>
 <?php
 if (isset($_POST["save"])) {
@@ -84,10 +94,35 @@ if (isset($_POST["save"])) {
 <?php
 $email = get_user_email();
 $username = get_username();
+$created = "";
+$public = false;
+$db = getDB();
+$stmt3 = $db->prepare("SELECT username, created, visibility from Users where id = :id");
+try {
+    $stmt3->execute([":id" => $user_id]);
+    $r = $stmt3->fetch(PDO::FETCH_ASSOC);
+    error_log("user: " . var_export($r, true));
+    $username = se($r, "username", "", false);
+    $created = se($r, "created", "", false);
+    $public = se($r, "visibility", 0, false) > 0;
+    if (!$public && !$isMe) {
+        flash("User's profile is private", "warning");
+        redirect("home.php");
+        //die(header("Location: home.php"));
+    }
+} catch (Exception $e) {
+    echo "<pre>" . var_export($e->errorInfo, true) . "</pre>";
+}
 ?>
 <div class="container-fluid">
     <h1>Profile</h1>
     <form method="POST" onsubmit="return validate(this);">
+        <div class="mb-3">
+                <div class="form-check form-switch">
+                    <input name="visibility" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" <?php if ($public) echo "checked"; ?>>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Make Profile Public</label>
+                </div>
+        </div>
         <div class="mb-3">
             <label class="form-label" for="email">Email</label>
             <input class="form-control" type="email" name="email" id="email" value="<?php se($email); ?>" />
