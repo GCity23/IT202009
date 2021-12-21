@@ -2,32 +2,42 @@
 //note we need to go up 1 more directory
 require(__DIR__ . "/../../../partials/nav.php");
 $db = getDB();
-
+$results = [];
 
 if (!has_role("Admin")) {
     flash("You don't have permission to view this page", "warning");
     die(header("Location: $BASE_PATH" . "home.php"));
 }
 
-$results = [];
-if (isset($_POST["itemName"])) {
-    $db = getDB();
-    $stmt = $db->prepare("SELECT id, name, description, stock, unit_price from Products WHERE name like :name LIMIT 100");
-    try {
-        $stmt->execute([":name" => "%" . $_POST["itemName"] . "%"]);
-        $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if ($r) {
-            $results = $r;
-        }
-    } catch (PDOException $e) {
-        flash("<pre>" . var_export($e, true) . "</pre>");
-    }
+$col = se($_GET, "col", "instock", false);
+if (!in_array($col, ["instock", "nostock", "all"])) {
+    $col = "instock"; //default value, prevent sql injection
 }
-$base_query = "SELECT id, name, description, unit_price, stock, visibility FROM Products items";
+
+$stock = se($_GET, "stock", "", false);
+
+$base_query = "SELECT id, name, description, unit_price, stock, visibility FROM Products";
 $total_query = "SELECT count(1) as total FROM Products items";
 //dynamic query
-$query = " WHERE visibility > 0"; //1=1 shortcut to conditionally build AND clauses
+$query = " WHERE 1=1"; //1=1 shortcut to conditionally build AND clauses
 $params = []; //define default params, add keys as needed and pass to execute
+
+if (!empty($col)) 
+{
+    if($col == "instock")
+    {
+        $query .= " AND stock > 0";
+    }
+    if($col == "nostock")
+    {
+        $query .= " AND stock = 0";
+    }
+    if($col == "all")
+    {
+        $query .= " AND stock >= 0";
+    }
+     //be sure you trust these values, I validate via the in_array checks above
+}
 $per_page = 10;
 paginate($total_query . $query, $params, $per_page);
 $query .= " LIMIT :offset, :count";
@@ -55,6 +65,31 @@ try {
 }
 
 ?>
+
+<form class="row row-cols-auto g-3 align-items-center">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-text">Sort</div>
+                <!-- make sure these match the in_array filter above-->
+                <select class="form-control" name="col" value="<?php se($col); ?>">
+                    <option value="instock">In Stock</option>
+                    <option value="nostock">Out of Stock</option>
+                    <option value="all">All</option>
+                </select>
+                <script>
+                    //quick fix to ensure proper value is selected since
+                    //value setting only works after the options are defined and php has the value set prior
+                    document.forms[0].col.value = "<?php se($col); ?>";
+                </script>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group">
+                <input type="submit" class="btn btn-primary" value="Apply" />
+            </div>
+        </div>
+    </form>
+
 <div class="container-fluid">
     <h1>List Items</h1>
     <form method="POST" class="row row-cols-lg-auto g-3 align-items-center">

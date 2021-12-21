@@ -3,6 +3,7 @@ require_once(__DIR__ . "/../../partials/nav.php");
 is_logged_in(true);
 $results2 = [];
 $results3 = [];
+$results4 = [];
 $db = getDB();
 //handle join
 //handle page load
@@ -70,10 +71,8 @@ if (isset($_POST["ratingval"]) && isset($_POST["comment"])) {
         } catch (Exception $e) {
             flash("Oh no, there was an error!");
         }
-}
-?>
 
-<?php
+
 $avg_query = "SELECT avg(rating) as `average` FROM Ratings WHERE item_id = :iid";
 $newnewSTMT = $db->prepare($avg_query);
 try {
@@ -85,6 +84,16 @@ try {
 } catch (PDOException $e) {
     error_log(var_export($e, true));
     flash("<pre>" . var_export($e, true) . "</pre>");
+}
+
+$newSTMT4 = $db->prepare("UPDATE Products SET rating = :r WHERE id = :iid");
+try {
+    $newSTMT4->execute([":iid" => $item_id, ":r" => se($results4, "average", "", false)]);
+} catch (PDOException $e) {
+    error_log(var_export($e, true));
+    flash("<pre>" . var_export($e, true) . "</pre>");
+}
+
 }
 //EVERYTHING ABOVE THIS IS WORKING
 //EVERYTHING ABOVE THIS IS WORKING
@@ -119,6 +128,8 @@ try {
 } catch (PDOException $e) {
     flash("<pre>" . var_export($e, true) . "</pre>");
 }
+
+
 
 ?>
 
