@@ -10,6 +10,7 @@ $db = getDB();
 $item_id = 0;
 $results = 0;
 $user_id = get_user_id();
+$isMe = $user_id === get_user_id();
 $item_id=se($_GET,"item_id", "",false);
 $stmt = $db->prepare("SELECT id, category, description, unit_price, name FROM Products WHERE id = :iid");
 try {
@@ -98,7 +99,7 @@ try {
 //EVERYTHING ABOVE THIS IS WORKING
 //EVERYTHING ABOVE THIS IS WORKING
 
-$base_query = "SELECT user_id, item_id, rating, comment FROM Ratings WHERE item_id = :iid ORDER BY created desc";
+$base_query = "SELECT Ratings.user_id AS RUID, Ratings.item_id AS RIID, Ratings.rating AS RR, Users.username AS UU, Ratings.comment AS RC FROM Ratings INNER JOIN Users ON Ratings.user_id = Users.id WHERE item_id = :iid ORDER BY Ratings.created desc";
 $total_query = "SELECT count(1) as total FROM Ratings WHERE item_id = :iid";
 
 $params[":iid"] = $item_id;
@@ -143,9 +144,9 @@ try {
         </thead>
         <?php foreach ($results2 as $item) : ?>
         <tbody>
-                <td><?php se(get_username($user_id))?></td>
-                <td><?php se($item, "rating"); ?></td>
-                <td><?php se($item, "comment"); ?></td>
+                <td><?php $user_id = se($item, "RUID", 0, false); $username = se($item, "UU", "", false);include(__DIR__ . "/../../partials/user_profile_link.php"); ?></td>
+                <td><?php se($item, "RR"); ?></td>
+                <td><?php se($item, "RC"); ?></td>
         </tbody>
         <?php endforeach; ?>
         <h3> Average Rating: <?php se($results4, "average"); ?></h3>
