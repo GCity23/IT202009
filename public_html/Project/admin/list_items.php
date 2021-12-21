@@ -1,6 +1,8 @@
 <?php
 //note we need to go up 1 more directory
 require(__DIR__ . "/../../../partials/nav.php");
+$db = getDB();
+
 
 if (!has_role("Admin")) {
     flash("You don't have permission to view this page", "warning");
@@ -10,7 +12,7 @@ if (!has_role("Admin")) {
 $results = [];
 if (isset($_POST["itemName"])) {
     $db = getDB();
-    $stmt = $db->prepare("SELECT id, name, description, stock, unit_price from Products WHERE name like :name LIMIT 50");
+    $stmt = $db->prepare("SELECT id, name, description, stock, unit_price from Products WHERE name like :name LIMIT 100");
     try {
         $stmt->execute([":name" => "%" . $_POST["itemName"] . "%"]);
         $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -21,6 +23,37 @@ if (isset($_POST["itemName"])) {
         flash("<pre>" . var_export($e, true) . "</pre>");
     }
 }
+$base_query = "SELECT id, name, description, unit_price, stock, visibility FROM Products items";
+$total_query = "SELECT count(1) as total FROM Products items";
+//dynamic query
+$query = " WHERE visibility > 0"; //1=1 shortcut to conditionally build AND clauses
+$params = []; //define default params, add keys as needed and pass to execute
+$per_page = 10;
+paginate($total_query . $query, $params, $per_page);
+$query .= " LIMIT :offset, :count";
+$params[":offset"] = $offset;
+$params[":count"] = $per_page;
+//get the records
+$stmt1 = $db->prepare($base_query . $query); //dynamically generated query
+//we'll want to convert this to use bindValue so ensure they're integers so lets map our array
+foreach ($params as $key => $value) {
+    $type = is_int($value) ? PDO::PARAM_INT : PDO::PARAM_STR;
+    $stmt1->bindValue($key, $value, $type);
+}
+$params = null; //set it to null to avoid issues
+
+
+//$stmt = $db->prepare("SELECT id, name, description, cost, stock, image FROM BGD_Items WHERE stock > 0 LIMIT 50");
+try {
+    $stmt1->execute($params); //dynamically populated params to bind
+    $r = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+    if ($r) {
+        $results = $r;
+    }
+} catch (PDOException $e) {
+    flash("<pre>" . var_export($e, true) . "</pre>");
+}
+
 ?>
 <div class="container-fluid">
     <h1>List Items</h1>
@@ -60,4 +93,5 @@ if (isset($_POST["itemName"])) {
 <?php
 //note we need to go up 1 more directory
 require_once(__DIR__ . "/../../../partials/footer.php");
+require(__DIR__ . "/../../../partials/pagination.php");
 ?>

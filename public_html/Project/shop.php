@@ -212,10 +212,7 @@ try {
                     <div class="card-footer">
                         Cost: <?php se($item, "unit_price"); ?>
                         <button onclick="purchase('<?php se($item, 'id'); ?>','<?php se($item, 'unit_price'); ?>')" class="btn btn-primary">Add to Cart</button>
-                        <form method = "POST" action="ExtraInfo.php">
-                            <input class="btn btn-primary" type="submit" value="More Info" name="MoreInfo"/>
-                            <input type="hidden" name="item_id" value="<?php se($item, "id"); ?>"/>
-                        </form>
+                        <a href="ExtraInfo.php?item_id=<?php se($item, 'id');?>">More Info</a>
                         <a href="admin/edit_item.php?id=<?php se($item, "id"); ?>">Edit</a>
                     </div>
                 </div>
@@ -225,4 +222,5 @@ try {
 </div>
 <?php
 require(__DIR__ . "/../../partials/footer.php");
+require(__DIR__ . "/../../partials/pagination.php");
 ?>
