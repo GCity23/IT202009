@@ -11,7 +11,7 @@ if (isset($_POST["MoreInfo"]))
 //Sort and Filters
 $col = se($_GET, "col", "unit_price", false);
 //allowed list
-if (!in_array($col, ["unit_price", "stock", "name", "created"])) {
+if (!in_array($col, ["unit_price", "stock", "name", "created", "rating"])) {
     $col = "unit_price"; //default value, prevent sql injection
 }
 $order = se($_GET, "order", "asc", false);
@@ -20,9 +20,10 @@ if (!in_array($order, ["asc", "desc"])) {
     $order = "asc"; //default value, prevent sql injection
 }
 $name = se($_GET, "name", "", false);
+$rating = se($_GET, "rating", "", false);
 
 //split query into data and total
-$base_query = "SELECT id, name, description, unit_price, stock, visibility FROM Products items";
+$base_query = "SELECT id, name, description, unit_price, stock, rating, visibility FROM Products items";
 $total_query = "SELECT count(1) as total FROM Products items";
 //dynamic query
 $query = " WHERE visibility > 0"; //1=1 shortcut to conditionally build AND clauses
@@ -100,6 +101,7 @@ try {
                     <option value="name">Name</option>
                     <option value="created">Created</option>
                     <option value="Category">Category</option>
+                    <option value="rating">rating</option>
                 </select>
                 <script>
                     //quick fix to ensure proper value is selected since
@@ -199,7 +201,7 @@ try {
             <div class="col">
                 <div class="card bg-dark">
                     <div class="card-header">
-                        Placeholder
+                        
                     </div>
                     <?php if (se($item, "image", "", false)) : ?>
                         <img src="<?php se($item, "image"); ?>" class="card-img-top" alt="...">
@@ -208,14 +210,12 @@ try {
                     <div class="card-body">
                         <h5 class="card-title">Name: <?php se($item, "name"); ?></h5>
                         <p class="card-text">Description: <?php se($item, "description"); ?></p>
+                        <p class="card-text">Average Rating: <?php se($item, "rating");?></p>
                     </div>
                     <div class="card-footer">
                         Cost: <?php se($item, "unit_price"); ?>
                         <button onclick="purchase('<?php se($item, 'id'); ?>','<?php se($item, 'unit_price'); ?>')" class="btn btn-primary">Add to Cart</button>
-                        <form method = "POST" action="ExtraInfo.php">
-                            <input class="btn btn-primary" type="submit" value="More Info" name="MoreInfo"/>
-                            <input type="hidden" name="item_id" value="<?php se($item, "id"); ?>"/>
-                        </form>
+                        <a href="ExtraInfo.php?item_id=<?php se($item, 'id');?>">More Info</a>
                         <a href="admin/edit_item.php?id=<?php se($item, "id"); ?>">Edit</a>
                     </div>
                 </div>
@@ -225,4 +225,5 @@ try {
 </div>
 <?php
 require(__DIR__ . "/../../partials/footer.php");
+require(__DIR__ . "/../../partials/pagination.php");
 ?>
