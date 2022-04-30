@@ -13,7 +13,7 @@
 .alert-info {
     background-color: blue;
 }
-nav {background-color: coral;font-size: 20px;}
+nav {background-color: yellowgreen;font-size: 20px;}
 nav li{display: inline; background-color: coral;font-size: 20px;}
 nav li a{color: yellow; font-size: 20px;}
 input{border-radius: 0%;
@@ -21,10 +21,13 @@ input{border-radius: 0%;
     
     width:100%;
     font-size: 20px;
+
 }
 body{
-    background-color: yellow;
-    color: coral;
+    background-color: yellowgreen;
+    color: blue;
     font-size: 20px;
+
+
 
 }

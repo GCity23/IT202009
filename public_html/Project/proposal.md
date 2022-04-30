@@ -157,12 +157,1221 @@ Finished
         - Screenshot #5 ![image](https://user-images.githubusercontent.com/74613485/141504569-f031e986-206f-4047-8a53-dacd9bbeb755.png)
             - Screenshot #5 Successful password reset
 
-
 - Milestone 2
 
-- Milestone 3
+<table>
+<tr><td>Milestone 2</td></tr><tr><td>
+<table>
+<tr><td>F1 - User with an admin role or shop owner role will be able to add products to inventory (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/admin/add_item.php](https://gcn5-prod.herokuapp.com/Project/admin/add_item.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/76](https://github.com/GCity23/IT202009/pull/76)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F1 - Table should be called Products (id, name, description, category, stock, created, modified, unit_price, visibility [true, false])</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145669702-6cae2c15-7e2e-43c9-800c-8f4c911b6bda.png">
+<p>This is my add_items page. It is where I can add all the stuff I need into my cart. </p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145669731-fb169283-c70b-4f92-ae43-f09b393a2020.png">
+<p>This shows my products table, where the items that are added actually go.</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F2 - Any user will be able to see products with visibility = true on the Shop page (2021-12-10)</td></tr>
+<tr><td>Status: incomplete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/shop.php](https://gcn5-prod.herokuapp.com/Project/shop.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/76](https://github.com/GCity23/IT202009/pull/76)</p><p>
+
+ [https://github.com/GCity23/IT202009/pull/78](https://github.com/GCity23/IT202009/pull/78)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F2 - Product list page will be public (i.e. doesn’t require login)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145669999-3fd10346-b2bc-43a0-a23c-bce9fd7c0062.png">
+<p>Things can be seen in the cart without being logged in. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - For now limit results to 10 most recent</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145670059-46eb6f6a-2e4b-471b-8cb3-f17e3de649b9.png">
+<p>Per Page variable is set to 10</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145670192-5583e234-58f7-47ac-9d52-ba5e267ce8e1.png">
+<p>Shows 10 items in the shop</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - User will be able to filter results by category</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/ff0000/000000?text=incomplete"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145670233-7e040c6d-6ed6-43b2-afe0-c2fdec932b4f.png">
+<p>I got the category variable to show up. I tried to add the logic, but I could not get it to work. So, it is incomplete. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - User will be able to filter results by partial matches on the name</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145670300-e9a6b778-b116-45f9-8d51-45b289024a2c.png">
+<p>Shows partial name search. I typed in "rub" which is part of Rubix cube, and the Rubix cube item showed up. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - User will be able to sort results by price</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145670345-09b187c2-b056-4fcc-b49e-a0bb880bef97.png">
+<p>Shows how the cost is one of the options to sort. Also, all items are now sorted by cost, cheapest to most expensive. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F3 - Admin/Shop owner will be able to see products with any visibility (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/admin/list_items.php](https://gcn5-prod.herokuapp.com/Project/admin/list_items.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/76](https://github.com/GCity23/IT202009/pull/76)</p><p>
+
+ [https://github.com/GCity23/IT202009/pull/89](https://github.com/GCity23/IT202009/pull/89)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F3 - This should be a separate page from Shop, but will be similar</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145685145-4c680735-3493-4b2e-894d-e4e8453dd4e0.png">
+<p>Here, my Ball product has a visibility of 0</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145685166-b0035713-3bdc-4367-8971-38b4c1f87bf0.png">
+<p>Since Ball has a visibility of 0, it does not appear in the shop</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145685203-46e2884c-11b6-4af8-aee3-94198d5451f6.png">
+<p>But, we can see here that in the admin only visible list item page, the Ball is still visible</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F3 - This page should only be accessible to the appropriate role(s)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145685231-23233780-7b62-4a43-87e9-2269fab2c2e4.png">
+<p>The page to go and look at all the items for admins regardless of the visibility is the list items page. It is only accessible under the Admin Roles Pages</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145685259-10405fb1-daa6-480b-9b3a-50ab5b03afea.png">
+<p>If logged out, that Admin Roles dropdown is no longer accessible</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145685310-cb2ea687-3db2-4ea6-97da-4d1fbec954fa.png">
+<p>Typing in the correct List Items URL while being logged out does not work, which is good. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F4 - Admin/Shop owner will be able to edit any product (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/admin/edit_item.php?id=7](https://gcn5-prod.herokuapp.com/Project/admin/edit_item.php?id=7)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/76](https://github.com/GCity23/IT202009/pull/76)</p><p>
+
+ [https://github.com/GCity23/IT202009/pull/79](https://github.com/GCity23/IT202009/pull/79)</p><p>
+
+ [https://github.com/GCity23/IT202009/pull/87](https://github.com/GCity23/IT202009/pull/87)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F4 - Edit button should be accessible for the appropriate role(s) anywhere a product is shown (Shop list, Product Details Page, etc)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145682785-a6396d69-8033-4740-abfe-f28ef65c88f3.png">
+<p>There is an edit link for all the products, in which the user can edit. </p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145682812-4796e0f8-5f41-4e36-930a-8ceff1fe4191.png">
+<p>Example of how an edit page looks like</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683378-978537d2-789a-4374-a980-6dd77dc04724.png">
+<p>Edit Button on product details page. It links to the edit item page</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683402-f98868c7-f13b-42e6-9278-72ccb629823d.png">
+<p>Edit Button on the Shop Page</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F5 - User will be able to click an item from a list and view a full page with more info about the item (Product Details Page) (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/shop.php](https://gcn5-prod.herokuapp.com/Project/shop.php)</p><p>
+
+ [https://gcn5-prod.herokuapp.com/Project/ExtraInfo.php](https://gcn5-prod.herokuapp.com/Project/ExtraInfo.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/80](https://github.com/GCity23/IT202009/pull/80)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F5 - View full page with more info about a specific product</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683434-4f81b762-b891-404d-8ec9-879a4a3aa025.png">
+<p>This is my shop page, with the more Info button acting as the product page button. </p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683448-59c0bd77-2b0f-470a-b864-c9b7f51119dc.png">
+<p>This is how my product information page looks</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F6 - User must be logged in for any Cart related activity below (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/cart.php](https://gcn5-prod.herokuapp.com/Project/cart.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/80](https://github.com/GCity23/IT202009/pull/80)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F6 - Can only access Cart if logged in</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683642-0d224a70-c7b6-44f2-8012-eb5bf59a76aa.png">
+<p>This is my cart page, and I am logged in. </p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683665-ae6fab53-976c-49b8-bf14-1ebb129ec7c3.png">
+<p>Cart page is not visible without being logged in. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F7 - User will be able to add items to Cart (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/shop.php](https://gcn5-prod.herokuapp.com/Project/shop.php)</p><p>
+
+ [https://gcn5-prod.herokuapp.com/Project/cart.php](https://gcn5-prod.herokuapp.com/Project/cart.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/80](https://github.com/GCity23/IT202009/pull/80)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F7 - Cart will be table-based (id, product_id, user_id, desired_quantity, unit_cost, created, modified)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683801-3c3f8d8e-b394-4c6a-91bf-c6a594876eca.png">
+<p>This page is my cart. It shows all the items that I clicked "Add to Cart" on from my shop page</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683833-94966b9c-e663-41f4-88e2-1ba2bee4b587.png">
+<p>This is my cart table</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F7 - Adding items to Cart will not affect the Product's quantity in the Products table</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145683905-5f675176-0113-4a57-85e5-61fc1a7ac12d.png">
+<p>This is my products table. All of my initial quantities have not changed</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F8 - User will be able to see their cart (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/cart.php](https://gcn5-prod.herokuapp.com/Project/cart.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/80](https://github.com/GCity23/IT202009/pull/80)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F8 - List all the items</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684070-c306c19e-d72c-4d3b-b550-3341c5049895.png">
+<p>List of all the items I added to my cart</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F8 - Show subtotal for each line item based on desired_quantity * unit_cost</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684096-47d296cd-250d-4f26-a31b-9aaf46b567f8.png">
+<p>This has the total cost for each item in the cart</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F8 - Show total cart value (sum of line item subtotals)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684124-6290887a-1c02-46d9-9bce-3abd31ded8cc.png">
+<p>This has the total value of everything in the cart</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F8 - Will be able to click an item to see more details (Product Details Page)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684140-78a85483-69ce-49f0-a14b-55b470a299ec.png">
+<p>Each item has a more info button that takes you to the product detail page</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684156-aee8d20f-97a8-4c0d-8d6e-25e25fdb396a.png">
+<p>How a product detail page looks when the More Info Button Is clicked</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F9 - User will be able to change quantity of items in their cart (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/cart.php](https://gcn5-prod.herokuapp.com/Project/cart.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/80](https://github.com/GCity23/IT202009/pull/80)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F9 - Quantity of 0 should also remove from cart</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684322-92586564-cb3d-4c2d-b5b6-0c4c715ecc46.png">
+<p>Items initially in my cart</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684337-890c6a74-400b-454b-92ff-9e43404f92af.png">
+<p>I am updating the quantity of this item to 0. also shows how I can update the quantity of any product. </p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684355-f076922b-6400-4d9f-813f-96c278f50209.png">
+<p>The item is not removed from the cart because the quantity was set to 0. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F10 - User will be able to remove a single item from their cart vai button click (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/cart.php](https://gcn5-prod.herokuapp.com/Project/cart.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/80](https://github.com/GCity23/IT202009/pull/80)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F10 - Single Item can be removed with one button click</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684492-bb6c087c-9f44-459a-8b3d-6f0aa042f735.png">
+<p>How my cart looks before hitting remove Item</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684530-11eda1e7-ea15-401c-8efb-899538a78a11.png">
+<p>I clicked on remove item on the pencils product. So now, that is removed and gone from the cart. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F11 - User will be able to clear their entire cart via a button click (2021-12-10)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/cart.php](https://gcn5-prod.herokuapp.com/Project/cart.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/80](https://github.com/GCity23/IT202009/pull/80)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F11 - Can clear entire Cart with One Button click</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684640-3d025b1f-5e40-4f56-929a-c6c0c5ab490c.png">
+<p>These are some items I have in my cart. This is before I have clicked Clear Cart</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/145684665-0a16dbc6-760d-4fe5-a2e9-764cfecaa905.png">
+<p>This is after I have clicked on the clear cart button and cleared my cart. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr></td></tr></table>
+
+
+
+
+<table>
+<tr><td>Milestone 3</td></tr><tr><td>
+<table>
+<tr><td>F1 - User will be able to purchase items in their Cart (2021-12-13)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/cart.php](https://gcn5-prod.herokuapp.com/Project/cart.php)</p><p>
+
+ [https://gcn5-prod.herokuapp.com/Project/checkout.php](https://gcn5-prod.herokuapp.com/Project/checkout.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/100](https://github.com/GCity23/IT202009/pull/100)</p><p>
+
+ [https://github.com/GCity23/IT202009/pull/101](https://github.com/GCity23/IT202009/pull/101)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F1 - Create an Orders table (id, user_id, created, total_price, address, payment_method)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146687992-e46d232b-1f72-4fd1-9c23-c5224691692b.png">
+<p>This is the order table I created</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F1 - Create an OrderItems table (id, order_id, product_id, quantity, unit_price)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688008-4bf2c3c5-535d-405e-9817-32fd76974a38.png">
+<p>This is the order items table I created</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F1 - Checkout Form</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688034-8c089591-3e77-46ef-a8f3-a7a9415fb217.png">
+<p>This is my checkout page. Only numbers can be added to the zipcode and unit price fields. It asks for payment type, but no credit card number, which is what the instructions asked. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F1 - User will be asked for their Address for shipping purposes</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688034-8c089591-3e77-46ef-a8f3-a7a9415fb217.png">
+<p>This checkout form has a field for the person to enter their address. Used for shipping purposes</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F1 - Order process:</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688133-6c2d6d47-e76f-4f11-a945-37e629c55631.png">
+<p>This is verifying that the current prices match the products table. This is also checking to see if the quantity is valid. It flashes the appropriate message otherwise. Both of these show an error message if something is wrong.</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688341-ee3e4c17-d617-4c9b-bc5c-c60741da9906.png">
+<p>Error for quantity/stock issue</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688431-ac8764ee-7f02-4bef-af68-a8af48bcc412.png">
+<p>Error for not matching prices</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688473-e7914922-19f4-4584-a679-6b5f59a29b8f.png">
+<p>Inserting into Orders and Orders Items Tables. also getting last order id. This is done with a function, and some insert sql stmts. </p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688540-a6846480-2893-4edd-90c1-ff02197108d5.png">
+<p>This code clears out the user's cart, redirects the user to the order confirmation page, and updates the stock of the product from the products table to account for the user buying a certain amount, therefore removing it from stock. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F2 - Order Confirmation Page (2021-12-13)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/OrderConfirmation.php?id=33](https://gcn5-prod.herokuapp.com/Project/OrderConfirmation.php?id=33)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/102](https://github.com/GCity23/IT202009/pull/102)</p><p>
+
+ [https://github.com/GCity23/IT202009/pull/103](https://github.com/GCity23/IT202009/pull/103)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F2 - Show the entire order details from the Order and OrderItems table (similar to cart)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688617-b35aac60-a8c5-4c72-83fd-64701971367e.png">
+<p>Shows the entire order history</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - Displays a Thank you message</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688617-b35aac60-a8c5-4c72-83fd-64701971367e.png">
+<p>Displays a Thank You Message as well</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F3 - User will be able to see their Purchase History (2021-12-13)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/PurchaseHistory.php](https://gcn5-prod.herokuapp.com/Project/PurchaseHistory.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/104](https://github.com/GCity23/IT202009/pull/104)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F3 - For now limit to 10 most recent orders</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688644-ddf954f9-8b65-434b-9bae-67ddcf53621f.png">
+<p>Shows the user their 10 most recent orders</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F3 - A list item can be clicked to view the full details in the Order Details Page (similar to Order Confirmation Page except no “Thank you” message)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688660-3d87c9b5-95fe-4164-8c14-d5e717b861f7.png">
+<p>This is the page you are brought to when you click on the More Info button. It shows you the specific order details.</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F4 - Store Owner will be able to see all Purchase History (2021-12-13)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/admin/Order_History.php](https://gcn5-prod.herokuapp.com/Project/admin/Order_History.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/104](https://github.com/GCity23/IT202009/pull/104)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F4 - For now limit to 10 most recent orders</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688688-4ab1ecfe-161c-41db-aa4e-319fddea5de5.png">
+<p>This is the 10 most orders from any user. So, it is the overall shop purchase history. Only Shop Owner can see this. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F4 - A list item can be clicked to view the full details in the Order Details Page (similar to Order Confirmation Page except no “Thank you” message)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/146688768-8184ae07-dc1d-438f-aa70-1b2efaf125e5.png">
+<p>This is where the shop owner can see individual details about an order. This is when the More Info Button is clicked. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr></td></tr></table>
+
+
 
 - Milestone 4
+
+
+
+<table>
+<tr><td>Milestone 4</td></tr><tr><td>
+<table>
+<tr><td>F1 - User can set their profile to be public or private (will need another column in Users table) (2021-12-21)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/profile.php](https://gcn5-prod.herokuapp.com/Project/profile.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/112](https://github.com/GCity23/IT202009/pull/112)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F1 - If public, hide email address from other users</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147018818-fa4a7367-ca0e-4536-9114-94f6674c156c.png">
+<p>Visibility in the Table</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147018853-b6c034c8-58c7-4fcd-94ec-09ffd768178b.png">
+<p>User can choose to make their profile public/private</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147018896-028f42b4-26ce-4ffd-ae1f-7f6f6c83c7e4.png">
+<p>What happens when another user wants to see the profile when public (Hides The Email)</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147018955-88457644-5e9c-44cc-b17f-b28b11017adf.png">
+<p>How it looks if the profile is public. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F2 - User will be able to rate a product they purchased (2021-12-21)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/shop.php](https://gcn5-prod.herokuapp.com/Project/shop.php)</p><p>
+
+ [https://gcn5-prod.herokuapp.com/Project/ExtraInfo.php?item_id=5](https://gcn5-prod.herokuapp.com/Project/ExtraInfo.php?item_id=5)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/110](https://github.com/GCity23/IT202009/pull/110)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F2 - Create table called Ratings (id, product_id, user_id, rating, comment, created)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147019469-ed93c1f7-9725-4ade-aa54-b9a3ba87664a.png">
+<p>This is a picture of my ratings table</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - 1-5 rating</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147019469-ed93c1f7-9725-4ade-aa54-b9a3ba87664a.png">
+<p>All Ratings are between 1 and 5</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - Text Comment (use TEXT data type in sql)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147019584-4578542a-59b0-44b6-b988-1ede6727b5c3.png">
+<p>Shows how the comment column is type text</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - Must be done on the Product Details Page</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147019654-84b17cf8-3d0c-4ebe-810f-7f530091fe0f.png">
+<p>Ratings can be added on the product details page</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - Ratings and Rating Comments will be visible on the Product Details page [Show 5 latest reviews, Paginate everything beyond 5]</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147020172-d6c768b1-e1f1-45d7-8c81-1ab971a2865f.png">
+<p> The Ratings and Rating info is displayed in a table. The extra reviews are paginated. This is on the product details page</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - Show the average rating on the Product Details Page</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147020299-298bfe67-59d7-403b-b0a3-f44f0f739bbe.png">
+<p>This shows the average rating for the product based on the ratings. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F3 - User’s Purchase History Changes (2021-12-21)</td></tr>
+<tr><td>Status: incomplete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/PurchaseHistory.php](https://gcn5-prod.herokuapp.com/Project/PurchaseHistory.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/112](https://github.com/GCity23/IT202009/pull/112)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F3 - Filter by date range</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147020858-5c228228-fff0-4aa5-b703-50d68e3fb0b2.png">
+<p>Can find the orders between 2 dates.</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F3 - Filter by category</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/ff0000/000000?text=incomplete"></td></tr>
+
+<tr><td>
+<img width="768px" src="">
+<p>I couldn't get this to work. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F3 - Sort by total, date purchased, etc</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147021036-48a3a0a9-2f9d-4d5c-a2d7-b0af580c34dc.png">
+<p>Sorted by date purchased</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147021094-9b0e42fb-2bf5-4f5a-a1c5-086209b32f82.png">
+<p>Sorted by total order cost</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F3 - Add pagination - Any filter/sort applied must be followed during the pagination process</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147021151-7a6f5064-5b98-40ed-8826-9feb9af6a2a0.png">
+<p>Proof that filter and sort works during the pagination process</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F4 - Store Owner Purchase History Changes (2021-12-21)</td></tr>
+<tr><td>Status: incomplete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/admin/Order_History.php](https://gcn5-prod.herokuapp.com/Project/admin/Order_History.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/112](https://github.com/GCity23/IT202009/pull/112)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F4 - Filter by Date Range</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147021988-a5780cf8-6502-4289-bd74-2fbf82a67017.png">
+<p>Orders can be found within a date range entered by the user</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F4 - Filter by Category</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/ff0000/000000?text=incomplete"></td></tr>
+
+<tr><td>
+<img width="768px" src="">
+<p>I couldn't get this working</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F4 - Sort by total, date purchased, etc</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147022095-8294b29d-b5ed-439d-897d-f51e1997acd5.png">
+<p>Sorted by Total Order Cost</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147022145-74c13653-47ca-4b83-93b4-97b6ec6c52b8.png">
+<p>Sorted by Date Filtered</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F4 - Add pagination - Any filter/sort applied must be followed during the pagination process</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147022370-7e17ceae-c534-45eb-af4a-2f1d06861c73.png">
+<p>This is proof that the pagination works and it carries out the filter and sorting.</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F4 - The result page should show the accurate total price of the combined search results (i.e., if just 3 records show each of $25, it should show $75 total for this view)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147022266-9567dd86-0009-4320-a8f2-0637f8a767df.png">
+<p>It shows the total revenue for the orders currently shown on the page</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F5 - Add pagination to Shop Page (and any other product lists not yet mentioned) (2021-12-21)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/shop.php](https://gcn5-prod.herokuapp.com/Project/shop.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/111](https://github.com/GCity23/IT202009/pull/111)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F5 - Add pagination to Other Pages</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147022986-1e8745d8-33f5-473d-ae9c-358c185c3d4b.png">
+<p>This is the first page of the pagination for the shop page</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147023010-faf0901b-e3bd-42dd-8360-2a4d207ffc02.png">
+<p>This is the second page of the pagination for the shop page</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F6 - Store Owner will be able to see all products out of stock (2021-12-21)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/admin/list_items.php](https://gcn5-prod.herokuapp.com/Project/admin/list_items.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/111](https://github.com/GCity23/IT202009/pull/111)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F6 - This will be added as a filter to their product list page from Milestone 2</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147023643-a6352f59-1d6c-4ab2-a742-2f1694170a92.png">
+<p>Stock filtered items</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147023685-3c735678-e583-4567-b536-6133b9bb65ce.png">
+<p>In-stock filtered items. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F6 - Pagination should account for this new filter</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147023768-e1ea8786-b386-43eb-a067-1eecca15a0da.png">
+<p>Proof that pagination accounts for the filters. For example, we are on page 2, and the in-stock filter is still present. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F6 - Recommended to have the filter applied as a given value (i.e., where quantity is <= value)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147023876-973bb64c-4c3d-4f2e-9bdd-dce34d0a4d66.png">
+<p>This is the stock measuring logic I used to figure out if a product is in stock or isn't, or if I want everything. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F7 - User can sort products by average rating on the Shop Page (2021-12-21)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://gcn5-prod.herokuapp.com/Project/shop.php](https://gcn5-prod.herokuapp.com/Project/shop.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/GCity23/IT202009/pull/111](https://github.com/GCity23/IT202009/pull/111)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F7 - Hint: may want to add an “average rating” field to the Products table and update this value any time a new rating is given for the product</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147025007-ec5f3bb1-b42f-410b-9e37-27aa36a929d8.png">
+<p>This is how the rating sort works. The order is down, so it's highest to lowest rating. </p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/74613485/147025179-544cc8a6-35cb-4439-9a3b-6e612984d2b5.png">
+<p>This is the rating column I added to my Products table. </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr></td></tr></table>
+
 ### Intructions
 #### Don't delete this
 1. Pick one project type
@@ -197,3 +1406,4 @@ Finished
   8. Merge the updated dev branch into your production branch via a pull request
   9. Close any related issues that didn't auto close
     - You can edit the dropdown on the issue or drag/drop it to the proper column on the project board
+    
